@@ -1,5 +1,7 @@
 module ChaoticEncryption
 
-# Write your package code here.
+include("logistic_key.jl")
+
+export logisticKey
 
 end
