@@ -6,9 +6,9 @@ equations.
 
 The equations -
 
-    dx/dt = α * (y - x)
-    dy/dt = x * (ρ - z) - y
-    dz/dt = x * y - β * z
+\$\\frac{dx}{dt} = α * (y - x)\$
+\$\\frac{dy}{dt} = x * (ρ - z) - y\$
+\$\\frac{dz}{dt} = x * y - β * z\$
 
 # Arguments
 - `x_init::Float64`: Initial value of x.
