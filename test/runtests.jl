@@ -1,6 +1,2 @@
-using ChaoticEncryption
-using Test
-
-@testset "ChaoticEncryption.jl" begin
-    # Write your tests here.
-end
+using SafeTestsets
+@safetestset "ChaoticEncryption Tests" begin include("test_chaotic_encryption.jl") end
