@@ -30,14 +30,14 @@ We use [GIT](https://en.wikipedia.org/wiki/Git) and [GitHub](https://en.wikipedi
 1. Create an [issue](https://guides.github.com/features/issues/) where new proposals can be discussed before any coding is done.
 2. Create a [branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) of this repo (ideally on your own [fork](https://help.github.com/articles/fork-a-repo/)), where all changes will be made
 3. Download the source code onto your local system, by [cloning](https://help.github.com/articles/cloning-a-repository/) the repository (or your fork of the repository).
-4. [Install](#local-installation) PyBaMM with the developer options.
+4. [Install](#local-installation) ChaoticEncryption.jl with the developer options.
 5. [Test](#testing) if your installation worked, using: `julia> ]test ChaoticEncryption`.
 
 You now have everything you need to start making changes!
 
 ### B. Writing your code
 
-6. ChaoticEncryption.jl is developed in [Julia](https://en.wikipedia.org/wiki/Python_(programming_language)).
+6. ChaoticEncryption.jl is developed in [Julia](https://julialang.org/)).
 7. Commit your changes to your branch with [useful, descriptive commit messages](https://chris.beams.io/posts/git-commit/): Remember these are publicly visible and should still make sense a few months ahead in time. While developing, you can keep using the GitHub issue you're working on as a place for discussion. [Refer to your commits](https://stackoverflow.com/questions/8910271/how-can-i-reference-a-commit-in-an-issue-comment-on-github) when discussing specific lines of code.
 8. If you want to add a dependency on another library, or re-use code you found somewhere else, please add a link to the original source code.
 
@@ -91,7 +91,7 @@ ChaoticEncryption.jl is documented in several ways.
 
 First and foremost, every method and every class should have a [docstring](https://docs.julialang.org/en/v1/manual/documentation/) that describes in plain terms what it does, and what the expected input and output is.
 
-These docstrings are directly rendered in the deployed documentation website. The source for this website is present in the [`docs`]() folder and the deployed branch i
+These docstrings are directly rendered in the deployed documentation website. The source for this website is present in the [`docs`](https://github.com/Saransh-cpp/ChaoticEncryption.jl/tree/master/docs) folder and the deployed branch i
 
 In addition, we write a (very) small bit of documentation in separate MarkDown in the `docs` directory. Most of what these files do is simply import docstrings from the source code. But they also do things like add tables and indexes. If you've added a new function to a module, search the `docs` directory for that module's `.md` file and add your function (in alphabetical order) to its index. If you've added a whole new module, copy-paste another module's file and add a link to your new file in the appropriate `index.md` file.
 
@@ -116,8 +116,6 @@ Configuration files:
 ```
 Project.toml
 ```
-
-Note that this file must be kept in sync with the version number in [pybamm/__init__.py](pybamm/__init__.py).
 
 ### Continuous Integration using GitHub actions
 
@@ -146,10 +144,10 @@ documentation.yml
 
 GitHub does some magic with particular filenames. In particular:
 
-- The first page people see when they go to [our GitHub page](https://github.com/pybamm-team/PyBaMM) displays the contents of [README.md](README.md), which is written in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format. Some guidelines can be found [here](https://help.github.com/articles/about-readmes/).
+- The first page people see when they go to [our GitHub page](https://github.com/Saransh-cpp/ChaoticEncryption.jl) displays the contents of [README.md](README.md), which is written in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format. Some guidelines can be found [here](https://help.github.com/articles/about-readmes/).
 - The license for using PyBaMM is stored in [LICENSE](LICENSE), and [automatically](https://help.github.com/articles/adding-a-license-to-a-repository/) linked to by GitHub.
 - This file, [CONTRIBUTING.md](CONTRIBUTING.md) is recognised as the contribution guidelines and a link is [automatically](https://github.com/blog/1184-contributing-guidelines) displayed when new issues or pull requests are created.
 
 ## Acknowledgements
 
-This CONTRIBUTING.md file was copied from the excellent [PyBaMM GitHub repo](https://github.com/pybamm-team/PyBaMM)
+This CONTRIBUTING.md file was copied from the excellent [PyBaMM GitHub repo](https://github.com/pybamm-team/PyBaMM).
