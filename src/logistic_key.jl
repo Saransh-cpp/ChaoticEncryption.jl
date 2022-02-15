@@ -17,8 +17,8 @@ function logistic_key(x_init::Float64, r::Float64, num_keys::Int64)
 
     for i = 1:num_keys
         x = r * x * (1-x)
-        # key = x * 10 ^ 16 % 256
-        push!(keys, x)
+        key = x * 10 ^ 16 % 256
+        push!(keys, trunc(Int, key))
     end
 
     return keys

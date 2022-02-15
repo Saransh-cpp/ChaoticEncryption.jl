@@ -1,37 +1,79 @@
-using image
+using Images
 using FileIO
 
-
-function subtitution_encryption(path::String, keys)
-    image = load(path)
+"""
+keys = logistic_key(0.01, 3.97, 719 * 718)
+    
+substitution_encryption("D:\\Saransh\\Docs\\PyCon_Squared.jpg", keys)
+substitution_decryption("./encrypted.png", keys)
+"""
+function substitution_encryption(
+    path_to_image::String,
+    keys::Array,
+    path_for_result::String="./encrypted.png",
+)
+    image = load(path_to_image)
 
     # Generating dimensions of the image
     height = size(image)[1]
     width = size(image)[2]
-    print(height, width)
 
-    z = 0
+    if length(keys) != height * width
+        throw(ArgumentError("Number of keys must be equal to height * width of image."))
+    end
+
+    z = 1
 
     # Initializing the encrypted image
-    encryptedImage = zeros(shape=[height, width, 3], dtype=np.uint8)
+    encryptedImage = copy(image)
+
+    println("ENCRYPTING")
 
     # Substituting all the pixels in original image with nested for
     for i = 1:height
         for j = 1:width
-            encryptedImage[i, j] = image[i, j] ⊻ generatedKey[z]
+            rgb = encryptedImage[i, j]
+            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
+            encryptedImage[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
             z += 1
         end
     end
 
-    # Decryption using XOR
-    z = 0
+    println("ENCRYPTED")
+    save(path_for_result, encryptedImage)
+end
 
-    # Initializing the decrypted image
-    decryptedImage = np.zeros(shape=[height, width, 3], dtype=np.uint8)
+function substitution_decryption(
+    path_to_image::String,
+    keys::Array,
+    path_for_result::String="./decrypted.png",
+)
+    image = load(path_to_image)
 
-    # Substituting all the pixels in encrypted image with nested for
-    for i in range(height):
-        for j in range(width):
-            # USing the XOR operation between encrypted image pixels and keys
-            decryptedImage[i, j] = encryptedImage[i, j].astype(int) ^ generatedKey[z]
+    # Generating dimensions of the image
+    height = size(image)[1]
+    width = size(image)[2]
+
+    if length(keys) != height * width
+        throw(ArgumentError("Number of keys must be equal to height * width of image."))
+    end
+
+    z = 1
+
+    # Initializing the encrypted image
+    decryptedImage = copy(image)
+    println("DECRYPTING")
+
+    # Substituting all the pixels in original image with nested for
+    for i = 1:height
+        for j = 1:width
+            rgb = decryptedImage[i, j]
+            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
+            decryptedImage[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
             z += 1
+        end
+    end
+
+    println("DECRYPTED")
+    save(path_for_result, decryptedImage)
+end
