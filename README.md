@@ -5,3 +5,7 @@
 [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)
 [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl)
 
+Encrypt and decrypt image files using Pseudo-Random Number Generators and various encryption techniques!
+
+## Installation
+
