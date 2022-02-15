@@ -20,9 +20,9 @@ The equations -
 - `β::Float64`: Constant associated with Lorenz system of differential equations.
 
 # Returns
-- `x::Array{Any, 1}`: Generated pseudo-random keys corresponding to x values.
-- `y::Array{Any, 1}`: Generated pseudo-random keys corresponding to y values.
-- `z::Array{Any, 1}`: Generated pseudo-random keys corresponding to z values.
+- `x::Array{Int64, 1}`: Generated pseudo-random keys corresponding to x values.
+- `y::Array{Int64, 1}`: Generated pseudo-random keys corresponding to y values.
+- `z::Array{Int64, 1}`: Generated pseudo-random keys corresponding to z values.
 """
 function lorenz_key(
     x_init::Float64,
@@ -48,6 +48,16 @@ function lorenz_key(
         y[i + 1] = y[i] + ((x[i] * (ρ - z[i]) - y[i]) * dt)
         z[i + 1] = z[i] + ((x[i] * y[i] - β * z[i]) * dt)
     end
+
+    for i = 1:length(x)
+        x[i] = x[i] * (10 ^ 16) % 256
+        y[i] = y[i] * (10 ^ 16) % 256
+        z[i] = z[i] * (10 ^ 16) % 256
+    end
+
+    x = round.(Int, x)
+    y = round.(Int, y)
+    z = round.(Int, z)
 
     return x, y, z
 end
