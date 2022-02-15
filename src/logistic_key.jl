@@ -14,6 +14,31 @@ The equation -
 
 # Returns
 - `keys::Array{Int64, 1}`: Generated pseudo-random keys.
+
+# Example
+```julia-repl
+julia> logistic_key(0.01, 3.97, 20)
+20-element Array{Int64,1}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+ 200
+ 217
+  97
+ 132
+ 134
+ 100
+ 135
+ 232
+ 122
+```
 """
 function logistic_key(x_init::Float64, r::Float64, num_keys::Int64)
     keys = Array{Int64, 1}()
