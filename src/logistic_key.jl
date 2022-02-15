@@ -4,9 +4,8 @@
 Generates pseudo-random keys using the Logistic Map.
 
 The equation -
-```math
-    \\x_{n+1} = r * \\x_{n} * (1 - \\x_{n})
-```
+
+    x_(n+1) = r * x_n * (1 - x_n)
 
 # Arguments
 - `x_init::Float64`: Initial value of x. x ϵ (0, 1).
