@@ -3,6 +3,14 @@ name: CI
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC (8 PM CST)
+
+concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 
 jobs:
   test:
@@ -12,15 +20,21 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.5'
-          - '1.7'
-          - 'nightly'
+          - "1"    # Latest Release
+          - "nightly"
         os:
           - ubuntu-latest
-          - window-latest
-          - macos-latest
+          - macOS-latest
+          - windows-latest
         arch:
           - x64
+          - x86
+        exclude:
+          # Test 32-bit only on Linux
+          - os: macOS-latest
+            arch: x86
+          - os: windows-latest
+            arch: x86
     steps:
       - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1
