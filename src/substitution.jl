@@ -54,12 +54,10 @@ function substitution_encryption(
 
     z = 1
 
-    # Initializing the encrypted image
     encryptedImage = copy(image)
 
     println("ENCRYPTING")
 
-    # Substituting all the pixels in original image with nested for
     for i = 1:height
         for j = 1:width
             rgb = encryptedImage[i, j]
@@ -113,11 +111,9 @@ function substitution_decryption(
 
     z = 1
 
-    # Initializing the encrypted image
     decryptedImage = copy(image)
     println("DECRYPTING")
 
-    # Substituting all the pixels in original image with nested for
     for i = 1:height
         for j = 1:width
             rgb = decryptedImage[i, j]
