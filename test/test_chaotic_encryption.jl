@@ -18,20 +18,20 @@ using Test
     end
 
     @testset "Substitution Encryption" begin
-        img = load("./test_images/camera.jfif")
+        img = load("../test_images/camera.jfif")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
-        substitution_encryption("test_images/camera.jfif", keys, "./test_images/encrypted.png")
-        @test isfile("./test_images/encrypted.png")
+        substitution_encryption("../test_images/camera.jfif", keys, "../test_images/encrypted.png")
+        @test isfile("../test_images/encrypted.png")
     end
 
     @testset "Substitution Decryption" begin
-        img = load("./test_images/encrypted.png")
+        img = load("../test_images/encrypted.png")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
-        substitution_decryption("./test_images/encrypted.png", keys, "./test_images/decrypted.png")
-        @test isfile("./test_images/decrypted.png")
-        rm("./test_images/encrypted.png")
-        rm("./test_images/decrypted.png")
+        substitution_decryption("../test_images/encrypted.png", keys, "../test_images/decrypted.png")
+        @test isfile("../test_images/decrypted.png")
+        rm("../test_images/encrypted.png")
+        rm("../test_images/decrypted.png")
     end
 end
