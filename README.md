@@ -66,6 +66,12 @@ This image can then be decrypted using -
 substitution_decryption("path/to/encrypted.png", keys)  # decrypt
 ```
 
+## Examples
+
+The example for a particular function is available in the function's docstring itself. These docstrings or the API documentation is also available [here](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/).
+
+Other than the docstrings, comprehensive `Jupyter` notebooks displaying the features of `ChaoticEncryption.jl` are available in the [`examples`](https://github.com/Saransh-cpp/ChaoticEncryption.jl/tree/master/examples) directory.
+
 ## Testing
 
 To run the tests, execute the following in your `Julia REPL` -
@@ -74,6 +80,15 @@ julia> ]test ChaoticEncryption
 ```
 
 More information on tests is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#testing).
+
+To run calculate coverage while running tests, execute the following in your `Julia REPL` -
+```julia-repl
+julia> using Pkg
+julia> Pkg.add("Coverage")
+julia> Pkg.test("ChaoticEncryption"; coverage=true)
+```
+
+More information on coverage is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#coverage).
 
 ## Documentation
 
@@ -85,7 +100,7 @@ julia docs/make.jl
 ```
 The deployment will be visible on the webpage served at http://127.0.0.1:8000.
 
-More information on tests is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#documentation).
+More information on documentation is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#documentation).
 
 ## Infrastructure
 

@@ -85,6 +85,28 @@ Every new feature should have its own test. To create ones, have a look at the `
 
 Next, add some simple (and speedy!) tests of your main features. If these run without exceptions that's a good start! Julia's official documentation for unit-testing is very useful and can be found [here](https://docs.julialang.org/en/v1/stdlib/Test/).
 
+### Coverage
+
+The coverage value of our codebase shows how much of our code is actually seen by the unit tests. The coverage value should never go down and should always be ~100%
+
+[`Codecov`](#codecov) is used to automatically run coverage on pull requests.
+
+To run the coverage locally -
+1. Make sure `Coverage.jl` is installed -
+```julia-repl
+julia> using Pkg
+julia> Pkg.add("Coverage")
+```
+or
+```julia-repl
+julia> ]add Coverage
+```
+2. Run the tests with `coverage=true` -
+```julia-repl
+julia> using Pkg
+julia> Pkg.test("ChaoticEncryption"; coverage=true)
+```
+
 ## Documentation
 
 ChaoticEncryption.jl is documented in several ways.

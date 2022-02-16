@@ -2,3 +2,6 @@
 *.jl.cov
 *.jl.mem
 /Manifest.toml
+.ipynb_checkpoints
+encrypted.png
+decrypted.png
