@@ -15,6 +15,9 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 - `keys::Array{Int64, 1}`: Keys for encryption.
 - `path_for_result::String`: The path for storing the encrypted image.
 
+# Returns
+- `encryptedImage::Array{RGB{N0f8}, 2}`: Encrypted image.
+
 # Example
 ```julia-repl
 julia> using Images, ChaoticEncryption
@@ -60,7 +63,7 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
   74
  198
 
-julia> substitution_encryption("D:\\Saransh\\Docs\\PyCon_Squared.jpg", keys)
+julia> substitution_encryption(img, keys)
 ENCRYPTING
 ENCRYPTED
 ```
@@ -95,6 +98,8 @@ function substitution_encryption(
 
     println("ENCRYPTED")
     save(path_for_result, encryptedImage)
+
+    return encryptedImage
 end
 
 
@@ -109,9 +114,12 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 as the ones provided during encryption.
 
 # Arguments
-- `image`: `::String` or `::Array{RGB{N0f8},2}` The path to the image or the loaded image to be decrypted.
+- `image`: `::String` or `::Array{RGB{N0f8},2}`. The path to the image or the loaded image to be decrypted.
 - `keys::Array{Int64, 1}`: Keys for decryption.
 - `path_for_result::String`: The path for storing the decrypted image.
+
+# Returns
+- `decryptedImage::Array{RGB{N0f8}, 2}`: Decrypted image.
 
 # Example
 ```julia-repl
@@ -156,4 +164,6 @@ function substitution_decryption(
 
     println("DECRYPTED")
     save(path_for_result, decryptedImage)
+
+    return decryptedImage
 end

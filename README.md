@@ -70,6 +70,8 @@ substitution_decryption("path/to/encrypted.png", keys)  # decrypt
 
 The example for a particular function is available in the function's docstring itself. These docstrings or the API documentation is also available [here](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/).
 
+Other than the docstrings, comprehensive `Jupyter` notebooks displaying the features of `ChaoticEncryption.jl` are available in the [`examples`](https://github.com/Saransh-cpp/ChaoticEncryption.jl/tree/master/examples) directory.
+
 ## Testing
 
 To run the tests, execute the following in your `Julia REPL` -
