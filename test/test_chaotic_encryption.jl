@@ -1,5 +1,5 @@
 using ChaoticEncryption
-using Images
+using TestImages
 using Test
 
 @testset "ChaoticEncryption.jl" begin
@@ -18,33 +18,32 @@ using Test
     end
 
     @testset "Substitution Encryption" begin
-        img = load("../test_images/camera.jfif")
+        img = testimage("mandrill")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
-        substitution_encryption(img, keys, "../test_images/encrypted.png")
+        substitution_encryption(img, keys; path_for_result="../test_images/encrypted.png")
         @test isfile("../test_images/encrypted.png")
 
         keys = logistic_key(0.01, 3.97, 20)
-        @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_encryption(img, keys, "../test_images/encrypted.png")
+        @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_encryption(img, keys; path_for_result="../test_images/encrypted.png")
     end
 
     @testset "Substitution Decryption" begin
-        img = load("../test_images/encrypted.png")
+        img = testimage("mandrill")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
-        substitution_decryption("../test_images/encrypted.png", keys, "../test_images/decrypted.png")
+        substitution_decryption("../test_images/encrypted.png", keys; path_for_result="../test_images/decrypted.png")
         @test isfile("../test_images/decrypted.png")
 
-        substitution_decryption(img, keys, "../test_images/decrypted.png")
+        substitution_decryption(img, keys; path_for_result="../test_images/decrypted.png")
         @test isfile("../test_images/decrypted.png")
 
-        @test_throws ArgumentError("image must be of the type ::String or ::Array{RGB{N0f8},2}") substitution_decryption(5, keys, "../test_images/decrypted.png")
+        @test_throws ArgumentError("image must be of the type ::String or ::Array{RGB{N0f8},2}") substitution_decryption(5, keys; path_for_result="../test_images/decrypted.png")
 
         keys = logistic_key(0.01, 3.97, 20)
-        @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_decryption(img, keys, "../test_images/decrypted.png")
+        @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_decryption(img, keys; path_for_result="../test_images/decrypted.png")
 
-        rm("../test_images/encrypted.png")
-        rm("../test_images/decrypted.png")
+        rm("../test_images", recursive=true)
     end
 end
