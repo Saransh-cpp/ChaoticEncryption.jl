@@ -2,7 +2,7 @@ using Images
 using FileIO
 
 """
-    substitution_encryption(image, keys, path_for_result="./encrypted.png")
+    substitution_encryption(image, keys; path_for_result="./encrypted.png")
 
 Performs substitution encryption on a given image with the given keys.
 
@@ -70,7 +70,7 @@ ENCRYPTED
 """
 function substitution_encryption(
     image::Array{RGB{N0f8},2},
-    keys::Array{Int64, 1},
+    keys::Array{Int64, 1};
     path_for_result::String="./encrypted.png",
 )
     # Generating dimensions of the image
@@ -104,7 +104,7 @@ end
 
 
 """
-    substitution_decryption(image, keys, path_for_result="./decrypted.png")
+    substitution_decryption(image, keys; path_for_result="./decrypted.png")
 
 Performs substitution decryption on a given image with the given keys.
 
@@ -130,7 +130,7 @@ DECRYPTED
 """
 function substitution_decryption(
     image,
-    keys::Array{Int64, 1},
+    keys::Array{Int64, 1};
     path_for_result::String="./decrypted.png",
 )
 
