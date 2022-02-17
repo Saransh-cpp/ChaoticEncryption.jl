@@ -1,5 +1,5 @@
 """
-    lorenz_key(x_init, y_init, z_init, num_keys, α=10.0, ρ=28.0, β=2.667, dt=0.01)
+    lorenz_key(x_init, y_init, z_init, num_keys; α=10.0, ρ=28.0, β=2.667, dt=0.01)
 
 Generates 3 lists of pseudo-random numbers using Lorenz system of differential
 equations.
@@ -36,7 +36,7 @@ function lorenz_key(
     x_init::Float64,
     y_init::Float64,
     z_init::Float64,
-    num_keys::Int64,
+    num_keys::Int64;
     α::Float64=10.0,
     ρ::Float64=28.0,
     β::Float64=2.667,

@@ -49,23 +49,6 @@ julia> ]dev .
 - [ ] Website: frontend
 - [ ] Website: backend
 
-## Usage example
-A single encryption layer can be added as -
-```julia
-using Images
-using ChaoticEncryption
-
-img = load("path/to/image.jpg")
-height, width = size(img)
-
-keys = logistic_key(0.01, 3.97, height * width)  # generate keys using logistic map
-substitution_encryption("path/to/image.jpg", keys)  # encrypt
-```
-This image can then be decrypted using -
-```julia
-substitution_decryption("path/to/encrypted.png", keys)  # decrypt
-```
-
 ## Examples
 
 The example for a particular function is available in the function's docstring itself. These docstrings or the API documentation is also available [here](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/).
