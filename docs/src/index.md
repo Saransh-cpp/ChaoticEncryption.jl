@@ -38,16 +38,16 @@ lorenz_key(
 
 ```@docs
 substitution_encryption(
-    path_to_image::String,
+    image::Array{RGB{N0f8},2},
     keys::Array{Int64, 1},
-    path_for_result::String="./encrypted.png",
+    path_for_result::String="./encrypted.png"
 )
 ```
 
 ```@docs
 substitution_decryption(
-    path_to_image::String,
+    image,
     keys::Array{Int64, 1},
-    path_for_result::String="./decrypted.png",
+    path_for_result::String="./decrypted.png"
 )
 ```
