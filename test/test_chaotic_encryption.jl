@@ -1,5 +1,5 @@
 using ChaoticEncryption
-using Images
+using TestImages
 using Test
 
 @testset "ChaoticEncryption.jl" begin
@@ -18,7 +18,7 @@ using Test
     end
 
     @testset "Substitution Encryption" begin
-        img = load("../test_images/camera.jfif")
+        img = testimage("mandrill")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
         substitution_encryption(img, keys, "../test_images/encrypted.png")
@@ -29,7 +29,7 @@ using Test
     end
 
     @testset "Substitution Decryption" begin
-        img = load("../test_images/encrypted.png")
+        img = testimage("mandrill")
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
@@ -44,7 +44,6 @@ using Test
         keys = logistic_key(0.01, 3.97, 20)
         @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_decryption(img, keys, "../test_images/decrypted.png")
 
-        rm("../test_images/encrypted.png")
-        rm("../test_images/decrypted.png")
+        rm("../test_images", recursive=true)
     end
 end
