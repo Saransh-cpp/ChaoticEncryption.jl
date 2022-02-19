@@ -1,7 +1,9 @@
 # ChaoticEncryption.jl
 
-![Chaoticencryption jl-light](https://user-images.githubusercontent.com/74055102/154794898-ae269411-855a-455e-ac80-4782d6b6274b.png#gh-light-mode-only)
-![Chaoticencryption jl-dark](https://user-images.githubusercontent.com/74055102/154794900-c3a7378a-0eee-46be-ad37-607164a10791.png#gh-dark-mode-only)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/74055102/154795300-93829a7f-5859-4450-be20-8bd28ea4bcca.png#gh-light-mode-only"/>
+    <img src="https://user-images.githubusercontent.com/74055102/154795225-d439004c-267e-4d96-91c1-ffd9213eddbe.png#gh-dark-mode-only"/>
+</p>
 
 <div align="center">
   
