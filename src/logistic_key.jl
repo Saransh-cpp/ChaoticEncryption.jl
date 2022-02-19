@@ -16,7 +16,9 @@ The equation -
 - `keys::Array{Int64, 1}`: Generated pseudo-random keys.
 
 # Example
-```julia-repl
+```jldoctest
+julia> using ChaoticEncryption
+
 julia> logistic_key(0.01, 3.97, 20)
 20-element Array{Int64,1}:
    0
@@ -38,6 +40,7 @@ julia> logistic_key(0.01, 3.97, 20)
  135
  232
  122
+ 102
 ```
 """
 function logistic_key(x_init::Float64, r::Float64, num_keys::Int64)
