@@ -1,5 +1,8 @@
 # ChaoticEncryption.jl
 
+![Chaoticencryption jl-light](https://user-images.githubusercontent.com/74055102/154794898-ae269411-855a-455e-ac80-4782d6b6274b.png#gh-light-mode-only)
+![Chaoticencryption jl-dark](https://user-images.githubusercontent.com/74055102/154794900-c3a7378a-0eee-46be-ad37-607164a10791.png#gh-dark-mode-only)
+
 <div align="center">
   
   [![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster)
