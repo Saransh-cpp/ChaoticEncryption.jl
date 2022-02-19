@@ -3,7 +3,7 @@ using ChaoticEncryption
 
 makedocs(
     sitename = "ChaoticEncryption",
-    format = Documenter.HTML(),
+    format = Documenter.HTML(sidebar_sitename=false),
     modules = [ChaoticEncryption]
 )
 
