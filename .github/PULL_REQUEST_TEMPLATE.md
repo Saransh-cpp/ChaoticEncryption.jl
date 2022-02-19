@@ -14,7 +14,7 @@ Fixes # (issue)
 # Key checklist:
 
 - [ ] Package installs: `julia> ]dev .`
-- [ ] All tests pass: `$ julia ]test ChaoticEncryption`
+- [ ] All tests pass: `julia> ]test ChaoticEncryption`
 - [ ] The documentation builds: `$ cd docs` and then `$ julia make.jl`
 
 
@@ -22,3 +22,6 @@ Fixes # (issue)
 
 - [ ] Code is commented, particularly in hard-to-understand areas
 - [ ] Tests added that prove fix is effective or that feature works
+
+### Acknowledgements
+This Pull Request template was taken from the excellent [PyBaMM](https://github.com/pybamm-team/PyBaMM) repository.
