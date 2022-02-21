@@ -1,5 +1,3 @@
-# ChaoticEncryption.jl
-
 <p align="center">
     <img src="https://user-images.githubusercontent.com/74055102/154795300-93829a7f-5859-4450-be20-8bd28ea4bcca.png#gh-light-mode-only"/>
     <img src="https://user-images.githubusercontent.com/74055102/154795225-d439004c-267e-4d96-91c1-ffd9213eddbe.png#gh-dark-mode-only"/>
@@ -9,15 +7,18 @@
   
   [![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster)
   [![Documentation](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml/badge.svg)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml)
+  [![version](https://juliahub.com/docs/ChaoticEncryption/version.svg)](https://juliahub.com/ui/Packages/ChaoticEncryption/dtMkN)
   [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)
   [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl) [![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 </div>
 
-Encrypt and decrypt image files using Pseudo-Random Number Generators and various encryption techniques!
+# ChaoticEncryption.jl
+
+Encrypt and decrypt image files using Pseudo-Random Number Generators and various encryption techniques! `ChaoticEncryption.jl` comes loaded with Pseudo-Random Number Generators and various encryption techniques, which can be used to encrypt and decrypt any image file. The package is under active development, but the existing API is stable and might not change significantly.
 
 ## Installation
-Once this package is available on Julia's Registry (very soon) -
+This package is available on Julia's Registry!
 ```julia-repl
 julia> using Pkg
 julia> Pkg.add("ChaoticEncryption")
@@ -27,32 +28,7 @@ or
 julia> ]add ChaoticEncryption
 ```
 
-Right now, the package can be installed by following the steps below -
-
-1. Clone [this](https://github.com/Saransh-cpp/ChaoticEncryption.jl) repository -
-```
-git clone https://github.com/Saransh-cpp/ChaoticEncryption.jl
-```
-2. Change directory and activate `Julia REPL` -
-```
-cd ChaoticEncryption.jl
-julia
-```
-3. Install the package and its dependencies -
-```julia-repl
-julia> ]dev .
-```
-
-## Features
-
-- [X] Logistic Map PRNG
-- [X] Lorenz System of Differential Equations PRNG
-- [X] Substitution encryption and decryption
-- [ ] Shuffle encryption and decryption
-- [ ] More PRNGs
-- [ ] More encryption and decryption techniques
-- [ ] Website: frontend
-- [ ] Website: backend
+For developer installation or installation from source, refer [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#local-installation).
 
 ## Examples
 
