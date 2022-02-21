@@ -1,7 +1,7 @@
 """
     logistic_key(x_init, r, num_keys)
 
-Generates pseudo-random keys using the Logistic Map.
+Generates a vector of pseudo-random keys using the Logistic Map.
 
 The equation -
 
@@ -13,14 +13,14 @@ The equation -
 - `num_keys::Int64`: Number of keys to be generated.
 
 # Returns
-- `keys::Array{Int64, 1}`: Generated pseudo-random keys.
+- `keys::Vector{Int64}:`: Generated pseudo-random keys.
 
 # Example
 ```jldoctest
 julia> using ChaoticEncryption
 
 julia> logistic_key(0.01, 3.97, 20)
-20-element Array{Int64,1}:
+20-element Vector{Int64}:
    0
   44
    7
@@ -44,7 +44,7 @@ julia> logistic_key(0.01, 3.97, 20)
 ```
 """
 function logistic_key(x_init::Float64, r::Float64, num_keys::Int64)
-    keys = Array{Int64, 1}()
+    keys = Vector{Int64}()
     x = x_init
 
     for i = 1:num_keys

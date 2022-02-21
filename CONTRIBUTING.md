@@ -58,6 +58,11 @@ Thanks to julia, `ChaoticEncryption.jl` can be installed for developers using a 
 julia> ]dev .
 ```
 
+Befor executing the command mentioned above, make sure you have cloned the repository. If not, execute:
+```
+git clone https://github.com/Saransh-cpp/ChaoticEncryption.jl
+```
+
 ## Testing
 
 All code requires testing. We use the [Julia's testing suite](https://docs.julialang.org/en/v1/stdlib/Test/) package for our tests. (These tests typically just check that the code runs without error, and so, are more _debugging_ than _testing_ in a strict sense. Nevertheless, they are very useful to have!). We use [`SafeTestsets.jl`](https://github.com/YingboMa/SafeTestsets.jl) to isolate the running tests, which in turn helps us in identifying the breaking point. The examples written in docstrings are also tested while building documentation.
