@@ -23,7 +23,7 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 julia> using TestImages, ChaoticEncryption
 
 julia> img = testimage("mandrill")
-512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.N0f8}:
  RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
  RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
  RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
@@ -49,7 +49,7 @@ julia> height, width = size(img)
 (512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width)
-262144-element Array{Int64,1}:
+262144-element Vector{Int64}:
    0
   44
    7
@@ -74,7 +74,7 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
 julia> substitution_encryption(img, keys)
 ENCRYPTING
 ENCRYPTED
-512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.N0f8}:
  RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.969,0.973,0.196)
  RGB{N0f8}(0.016,0.004,0.259)     RGB{N0f8}(0.91,0.102,0.855)
  RGB{N0f8}(0.525,0.686,0.98)      RGB{N0f8}(0.447,0.259,0.137)
@@ -99,7 +99,7 @@ ENCRYPTED
 """
 function substitution_encryption(
     image::Array{RGB{N0f8},2},
-    keys::Array{Int64, 1};
+    keys::Vector{Int64};
     path_for_result::String="./encrypted.png",
 )
     # Generating dimensions of the image
@@ -155,7 +155,7 @@ as the ones provided during encryption.
 julia> using TestImages, ChaoticEncryption
 
 julia> img = testimage("mandrill")
-512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.N0f8}:
  RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
  RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
  RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
@@ -181,7 +181,7 @@ julia> height, width = size(img)
 (512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width)
-262144-element Array{Int64,1}:
+262144-element Vector{Int64}:
    0
   44
    7
@@ -206,7 +206,7 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
 julia> substitution_decryption("./encrypted.png", keys)
 DECRYPTING
 DECRYPTED
-512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.N0f8}:
  RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
  RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
  RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
@@ -231,7 +231,7 @@ DECRYPTED
 """
 function substitution_decryption(
     image,
-    keys::Array{Int64, 1};
+    keys::Vector{Int64};
     path_for_result::String="./decrypted.png",
 )
 
