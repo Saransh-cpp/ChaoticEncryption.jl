@@ -20,6 +20,15 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "Muthukumar-Muthu",
+      "name": "Muthukumar M",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78968487?v=4",
+      "profile": "https://github.com/Muthukumar-Muthu",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

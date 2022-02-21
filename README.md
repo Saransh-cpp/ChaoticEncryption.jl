@@ -11,7 +11,7 @@
 [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)
 [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl) [![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 </div>
@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Saransh-cpp"><img src="https://avatars.githubusercontent.com/u/74055102?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Saransh</b></sub></a><br /><a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/commits?author=Saransh-cpp" title="Code">💻</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/issues?q=author%3ASaransh-cpp" title="Bug reports">🐛</a> <a href="#design-Saransh-cpp" title="Design">🎨</a> <a href="#example-Saransh-cpp" title="Examples">💡</a> <a href="#infra-Saransh-cpp" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Saransh-cpp" title="Maintenance">🚧</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/pulls?q=is%3Apr+reviewed-by%3ASaransh-cpp" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/commits?author=Saransh-cpp" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Muthukumar-Muthu"><img src="https://avatars.githubusercontent.com/u/78968487?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Muthukumar M</b></sub></a><br /><a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/commits?author=Muthukumar-Muthu" title="Documentation">📖</a></td>
   </tr>
 </table>
 
