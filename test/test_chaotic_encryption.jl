@@ -5,12 +5,12 @@ using Test
 @testset "ChaoticEncryption.jl" begin
 
     @testset "Logistic Map" begin
-        @test typeof(logistic_key(0.01, 3.97, 20)) == Array{Int64, 1}
+        @test typeof(logistic_key(0.01, 3.97, 20)) == Vector{Int64}
         @test length(logistic_key(0.01, 3.97, 20)) == 20
     end
 
     @testset "Lorenz System of Differential Equations" begin
-        @test typeof(lorenz_key(0.01, 0.02, 0.03, 20)) == Tuple{Array{Int64, 1}, Array{Int64, 1}, Array{Int64, 1}}
+        @test typeof(lorenz_key(0.01, 0.02, 0.03, 20)) == Tuple{Vector{Int64}, Vector{Int64}, Vector{Int64}}
         @test length(lorenz_key(0.01, 0.02, 0.03, 20)) == 3
         @test length(lorenz_key(0.01, 0.02, 0.03, 20)[1]) == 20
         @test length(lorenz_key(0.01, 0.02, 0.03, 20)[2]) == 20
