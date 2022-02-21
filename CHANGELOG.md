@@ -1,5 +1,7 @@
 # Unreleased
 
+# ChaoticEncryption v0.1.1
+
 ## Documentation
 - Improved the docstring examples ([#24](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/24), @Saransh-cpp)
 - Added doctests ([#24](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/24), @Saransh-cpp)
