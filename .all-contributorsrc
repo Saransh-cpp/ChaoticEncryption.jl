@@ -18,7 +18,8 @@
         "infra",
         "maintenance",
         "review",
-        "test"
+        "test",
+        "doc"
       ]
     },
     {
