@@ -11,15 +11,15 @@ Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
 
 [compat]
 FileIO = "1"
+ImageIO = "0.6"
 ImageMagick = "1"
 Images = "0.25"
-ImageIO = "0.6"
 julia = "^1.5"
 
 [extras]
 SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
-TestImages = "5e47fb64-e119-507b-a336-dd2b206d9990"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+TestImages = "5e47fb64-e119-507b-a336-dd2b206d9990"
 
 [targets]
 test = ["Test", "SafeTestsets", "TestImages"]
