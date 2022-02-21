@@ -1,4 +1,7 @@
 <p align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
     <img src="https://user-images.githubusercontent.com/74055102/154795300-93829a7f-5859-4450-be20-8bd28ea4bcca.png#gh-light-mode-only"/>
     <img src="https://user-images.githubusercontent.com/74055102/154795225-d439004c-267e-4d96-91c1-ffd9213eddbe.png#gh-dark-mode-only"/>
 </p>
@@ -81,3 +84,23 @@ A detailed guide on `ChaoticEncryption.jl`'s infrastructure is available [here](
 ## Contributing to ChaoticEncryption.jl
 
 All contributions to this repository are welcome. Please go through our [contribution guidelines](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md) to make the whole process smoother.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Saransh-cpp"><img src="https://avatars.githubusercontent.com/u/74055102?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Saransh</b></sub></a><br /><a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/commits?author=Saransh-cpp" title="Code">💻</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/issues?q=author%3ASaransh-cpp" title="Bug reports">🐛</a> <a href="#design-Saransh-cpp" title="Design">🎨</a> <a href="#example-Saransh-cpp" title="Examples">💡</a> <a href="#infra-Saransh-cpp" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Saransh-cpp" title="Maintenance">🚧</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/pulls?q=is%3Apr+reviewed-by%3ASaransh-cpp" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/commits?author=Saransh-cpp" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
