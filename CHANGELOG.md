@@ -4,6 +4,7 @@
 - All the types have been migrated to `Julia v1.7.2` ([#32](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/32), @Saransh-cpp)
 
 ## Documentation
+- Updated all the examples to go with `Julia v1.7.2` migration ([#34](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/34), @Saransh-cpp)
 - All the docstrings have been update to follow `Julia v1.7.2` and to pass the `doctests` ([#32](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/32), @Saransh-cpp)
 
 # ChaoticEncryption v0.1.1
