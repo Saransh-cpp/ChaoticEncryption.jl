@@ -65,7 +65,7 @@ git clone https://github.com/Saransh-cpp/ChaoticEncryption.jl
 
 ## Testing
 
-All code requires testing. We use the [Julia's testing suite](https://docs.julialang.org/en/v1/stdlib/Test/) package for our tests. (These tests typically just check that the code runs without error, and so, are more _debugging_ than _testing_ in a strict sense. Nevertheless, they are very useful to have!). We use [`SafeTestsets.jl`](https://github.com/YingboMa/SafeTestsets.jl) to isolate the running tests, which in turn helps us in identifying the breaking point.
+All code requires testing. We use the [Julia's testing suite](https://docs.julialang.org/en/v1/stdlib/Test/) package for our tests. (These tests typically just check that the code runs without error, and so, are more _debugging_ than _testing_ in a strict sense. Nevertheless, they are very useful to have!). We use [`SafeTestsets.jl`](https://github.com/YingboMa/SafeTestsets.jl) to isolate the running tests, which in turn helps us in identifying the breaking point. The examples written in docstrings are also tested while building documentation.
 
 Before running the tests, make sure you have `SafeTestsets.jl` installed -
 
@@ -83,6 +83,13 @@ To run the tests, open up your `Julia REPL` and type -
 ```julia-repl
 julia> ]test ChaoticEncryption
 ```
+
+To run the doctests, build the documentation using -
+```
+julia docs/make.jl
+```
+
+Refer to [documentation](#documentation) for more information on building documentation
 
 ### Writing tests
 

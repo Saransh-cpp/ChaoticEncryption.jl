@@ -1,5 +1,9 @@
 # Unreleased
 
+## Documentation
+- Improved the docstring examples ([#24](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/24), @Saransh-cpp)
+- Added doctests ([#24](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/24), @Saransh-cpp)
+
 ## Misc
 - Created a `CHANGELOG` file ([#25](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/25), @Saransh-cpp)
 - Created a new logo ([#23](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/23), @Saransh-cpp)
