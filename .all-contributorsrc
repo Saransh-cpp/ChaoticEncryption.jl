@@ -1,0 +1,31 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Saransh-cpp",
+      "name": "Saransh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/74055102?v=4",
+      "profile": "https://github.com/Saransh-cpp",
+      "contributions": [
+        "code",
+        "bug",
+        "design",
+        "example",
+        "infra",
+        "maintenance",
+        "review",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ChaoticEncryption.jl",
+  "projectOwner": "Saransh-cpp",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
