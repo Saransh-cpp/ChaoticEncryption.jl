@@ -19,10 +19,11 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 - `encryptedImage::Array{RGB{N0f8}, 2}`: Encrypted image.
 
 # Example
-```jldoctest; filter = " Downloading artifact: images"
+```jldoctest
 julia> using TestImages, ChaoticEncryption
 
 julia> img = testimage("mandrill")
+ Downloading artifact: images
 512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.N0f8}:
  RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
  RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
@@ -151,7 +152,7 @@ as the ones provided during encryption.
 - `decryptedImage::Array{RGB{N0f8}, 2}`: Decrypted image.
 
 # Example
-```jldoctest; filter = " Downloading artifact: images"
+```jldoctest
 julia> using TestImages, ChaoticEncryption
 
 julia> img = testimage("mandrill")
