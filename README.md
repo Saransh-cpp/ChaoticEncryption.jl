@@ -75,12 +75,9 @@ More information on documentation is available [here](https://github.com/Saransh
 A detailed guide on `ChaoticEncryption.jl`'s infrastructure is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#infrastructure).
 
 ## Results
-### Original Image
-![image](https://user-images.githubusercontent.com/74055102/154138746-cd49b7a7-bdf2-47c2-8260-35a90084c60a.png)
-### Encrypted Image
-![encrypted](https://user-images.githubusercontent.com/74055102/154138976-5e60fe23-3644-4299-bc39-7d6b637cc744.png)
-### Decrypted Image
-![decrypted](https://user-images.githubusercontent.com/74055102/154139009-bd2a1de0-03a7-432e-bc34-2647f8c42425.png)
+|S.No. | Original Image | Image Dimensions | Encrypted Image | Decrypted Image | PRNG used | Algorithm used |
+|:----:|:--------------:|:----------------:|:---------------:|:---------------:|:---------:|:--------------:|
+|1|![image](https://user-images.githubusercontent.com/74055102/154138746-cd49b7a7-bdf2-47c2-8260-35a90084c60a.png)| (225, 225) | ![encrypted](https://user-images.githubusercontent.com/74055102/154138976-5e60fe23-3644-4299-bc39-7d6b637cc744.png) | ![decrypted](https://user-images.githubusercontent.com/74055102/154139009-bd2a1de0-03a7-432e-bc34-2647f8c42425.png) | Logistic Map (`logistic_key`) | Substitution (`substitution_encryption, substitution_decryption`)|
 
 ## Contributing to ChaoticEncryption.jl
 
