@@ -1,5 +1,5 @@
 """
-    lorenz_key(x_init, y_init, z_init, num_keys; α=10.0, ρ=28.0, β=2.667, dt=0.01)
+    lorenz_key(x_init, y_init, z_init, num_keys; α=10.0, ρ=28.0, β=2.667, dt=0.01, scaling_factor=10.0^16, upper_bound=256.0)
 
 Generates 3 vectors of pseudo-random numbers using Lorenz system of differential
 equations.
