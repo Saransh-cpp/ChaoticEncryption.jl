@@ -17,7 +17,9 @@ CurrentModule = ChaoticEncryption
 logistic_key(
     x_init::Float64,
     r::Float64,
-    num_keys::Int64
+    num_keys::Int64;
+    scaling_factor::Float64=10.0^16,
+    upper_bound::Float64=256.0
 )
 ```
 
