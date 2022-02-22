@@ -11,7 +11,7 @@ The equation -
 - `x_init::Float64`: Initial value of x. x ϵ (0, 1).
 - `r::Float64`: A constant value. Values > 4 usually results in pseudo-random numbers.
 - `num_keys::Int64`: Number of keys to be generated.
-- `scaling_factor::Float64=10^16`: Factor to be multiplied to the generated value of pseudo-random
+- `scaling_factor::Float64=10.0^16`: Factor to be multiplied to the generated value of pseudo-random
     number. Ideally, the factor should be > upper_bound.
 - `upper_bound::Float64=256.0`: Upper bound of keys (not included). Use 256 for encrypting images
     as the RGB values of a pixel varies from 0 to 255.

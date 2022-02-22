@@ -18,6 +18,10 @@ The equations -
 - `α::Float64`: Constant associated with Lorenz system of differential equations.
 - `ρ::Float64`: Constant associated with Lorenz system of differential equations.
 - `β::Float64`: Constant associated with Lorenz system of differential equations.
+- `scaling_factor::Float64=10.0^16`: Factor to be multiplied to the generated value of pseudo-random
+    number. Ideally, the factor should be > upper_bound.
+- `upper_bound::Float64=256.0`: Upper bound of keys (not included). Use 256 for encrypting images
+    as the RGB values of a pixel varies from 0 to 255.
 
 # Returns
 - `x::Vector{Int64}`: Generated pseudo-random keys corresponding to x values.
@@ -40,7 +44,9 @@ function lorenz_key(
     α::Float64=10.0,
     ρ::Float64=28.0,
     β::Float64=2.667,
-    dt::Float64=0.01
+    dt::Float64=0.01,
+    scaling_factor::Float64=10.0^16,
+    upper_bound::Float64=256.0
 )
     # Initializing 3 empty lists
     x = zeros(Float64, num_keys)
@@ -58,9 +64,9 @@ function lorenz_key(
     end
 
     for i = 1:length(x)
-        x[i] = x[i] * (10 ^ 16) % 256
-        y[i] = y[i] * (10 ^ 16) % 256
-        z[i] = z[i] * (10 ^ 16) % 256
+        x[i] = x[i] * scaling_factor % upper_bound
+        y[i] = y[i] * scaling_factor % upper_bound
+        z[i] = z[i] * scaling_factor % upper_bound
     end
 
     x = round.(Int, x)
