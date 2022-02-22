@@ -5,7 +5,7 @@
 
 ## Documentation
 - Updated all the examples to go with `Julia v1.7.2` migration ([#34](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/34), @Saransh-cpp)
-- All the docstrings have been update to follow `Julia v1.7.2` and to pass the `doctests` ([#32](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/32), @Saransh-cpp)
+- All the docstrings have been updated to follow `Julia v1.7.2` and to pass the `doctests` ([#32](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/32), @Saransh-cpp)
 
 # ChaoticEncryption v0.1.1
 
@@ -24,7 +24,7 @@
 
 ## Features
 - Implemented the Logistic Map Pseudo-Random Number Generator (@Saransh-cpp)
-- Implemented the Lorenz  System of Differential Equations Pseudo-Random Number Generator (@Saransh-cpp)
+- Implemented the Lorenz System of Differential Equations Pseudo-Random Number Generator (@Saransh-cpp)
 - Implemented the substitution encryption and decryption algorithm (@Saransh-cpp)
 - Now the encryption and decryption functions will return the encrypted image ([#11](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/11), @Saransh-cpp)
 - Allow users to pass a loaded image instead of image's path ([#19](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/19), @Saransh-cpp)
