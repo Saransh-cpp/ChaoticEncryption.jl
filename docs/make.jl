@@ -4,7 +4,8 @@ using ChaoticEncryption
 makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
-    modules = [ChaoticEncryption]
+    modules = [ChaoticEncryption],
+    strict = true
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
