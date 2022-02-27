@@ -3,17 +3,33 @@
     <img src="https://user-images.githubusercontent.com/74055102/154795225-d439004c-267e-4d96-91c1-ffd9213eddbe.png#gh-dark-mode-only"/>
 </p>
 
+<!-- |Type|Badge/Status|
+|-|-|
+|CI|[![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster) [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl)|
+|CD/Documentation|[![Documentation](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml/badge.svg)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml) [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)|
+|Version|[![made-with-julia](https://img.shields.io/badge/Made%20with-Julia-ff69bf.svg)](https://julialang.org) [![version](https://juliahub.com/docs/ChaoticEncryption/version.svg)](https://juliahub.com/ui/Packages/ChaoticEncryption/dtMkN)|
+|Statistics|[![Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/ChaoticEncryption)](https://pkgs.genieframework.com?packages=ChaoticEncryption) ![GitHub Repo stars](https://img.shields.io/github/stars/Saransh-cpp/ChaoticEncryption.jl)|
+|Community|[![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)|
+ -->
 <div align="center">
   
-[![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster)
-[![Documentation](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml/badge.svg)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml)
-[![version](https://juliahub.com/docs/ChaoticEncryption/version.svg)](https://juliahub.com/ui/Packages/ChaoticEncryption/dtMkN)
-[![made-with-julia](https://img.shields.io/badge/Made%20with-Julia-ff69bf.svg)](https://julialang.org)
-[![Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/ChaoticEncryption)](https://pkgs.genieframework.com?packages=ChaoticEncryption)
-[![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)
-[![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl) [![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+|Type|Badge/Status|
+|-|-|
+|CI|[![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster) [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl)|
+|CD/Documentation|[![Documentation](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml/badge.svg)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml) [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/)|
+|Version|[![made-with-julia](https://img.shields.io/badge/Made%20with-Julia-ff69bf.svg)](https://julialang.org) [![version](https://juliahub.com/docs/ChaoticEncryption/version.svg)](https://juliahub.com/ui/Packages/ChaoticEncryption/dtMkN)|
+|Statistics|[![Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/ChaoticEncryption)](https://pkgs.genieframework.com?packages=ChaoticEncryption) ![GitHub Repo stars](https://img.shields.io/github/stars/Saransh-cpp/ChaoticEncryption.jl)|
+|Community|[![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)|
+
+<!-- [![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster) -->
+<!-- [![Documentation](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml/badge.svg)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/documentation.yml) -->
+<!-- [![version](https://juliahub.com/docs/ChaoticEncryption/version.svg)](https://juliahub.com/ui/Packages/ChaoticEncryption/dtMkN) -->
+<!-- [![made-with-julia](https://img.shields.io/badge/Made%20with-Julia-ff69bf.svg)](https://julialang.org) -->
+<!-- [![Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/ChaoticEncryption)](https://pkgs.genieframework.com?packages=ChaoticEncryption) -->
+<!-- [![Dev](https://img.shields.io/badge/Docs-Dev-brightgreen)](https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/) -->
+<!-- [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl) [![Join the chat at https://gitter.im/ChaoticEncryption-jl/community](https://badges.gitter.im/ChaoticEncryption-jl/community.svg)](https://gitter.im/ChaoticEncryption-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-) -->
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 </div>
