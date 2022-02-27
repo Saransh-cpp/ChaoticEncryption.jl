@@ -3,6 +3,8 @@
     <img src="https://user-images.githubusercontent.com/74055102/154795225-d439004c-267e-4d96-91c1-ffd9213eddbe.png#gh-dark-mode-only"/>
 </p>
 
+# ChaoticEncryption.jl
+
 |Type|Badge/Status|
 |-|-|
 |CI|[![Build Status](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/Saransh-cpp/ChaoticEncryption.jl/actions/workflows/CI.yml?query=branch%3Amaster) [![Coverage](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Saransh-cpp/ChaoticEncryption.jl)|
@@ -26,8 +28,6 @@
 
 <!-- </div> -->
 
-
-# ChaoticEncryption.jl
 
 Encrypt and decrypt image files using Pseudo-Random Number Generators and various encryption techniques! `ChaoticEncryption.jl` comes loaded with Pseudo-Random Number Generators and various encryption techniques, which can be used to encrypt and decrypt any image file. The package is under active development, but the existing API is stable and might not change significantly.
 
