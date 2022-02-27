@@ -54,13 +54,13 @@ function logistic_key(
     scaling_factor::Float64=10.0^16,
     upper_bound::Float64=256.0
 )
-    keys = Vector{Int64}()
+    keys = Vector{Int64}(undef, num_keys)
     x = x_init
 
     for i = 1:num_keys
         x = r * x * (1 - x)
         key = x * scaling_factor % upper_bound
-        push!(keys, trunc(Int, key))
+        keys[i] = trunc(Int, key)
     end
 
     return keys
