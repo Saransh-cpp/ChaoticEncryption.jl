@@ -1,5 +1,4 @@
 using Images
-using FileIO
 
 """
     substitution_encryption(image, keys; path_for_result="./encrypted.png")
