@@ -8,6 +8,7 @@
 
 ## Optimisations
 - `logistic_key` now pre-allocates the memory, making the function twice as fast as before ([#48](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/48), @Saransh-cpp)
+- Removed redundant dependencies ([#50](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/50), @Saransh-cpp)
 
 ## Documentation
 - Updated all the examples to go with `Julia v1.7.2` migration ([#34](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/34), @Saransh-cpp)
