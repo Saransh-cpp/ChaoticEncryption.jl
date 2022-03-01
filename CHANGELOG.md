@@ -1,5 +1,7 @@
 # Unreleased
 
+# ChaoticEncryption v0.2.0
+
 ## Breaking changes
 - All the types have been migrated to `Julia v1.7.2` ([#32](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/32), @Saransh-cpp)
 
