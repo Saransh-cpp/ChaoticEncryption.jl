@@ -21,8 +21,6 @@ The equation -
 
 # Example
 ```jldoctest
-julia> using ChaoticEncryption
-
 julia> logistic_key(0.01, 3.97, 20)
 20-element Vector{Int64}:
    0
