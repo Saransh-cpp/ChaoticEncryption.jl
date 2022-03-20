@@ -1,6 +1,7 @@
 using Documenter
 using ChaoticEncryption
 
+DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption); recursive = true)
 makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
