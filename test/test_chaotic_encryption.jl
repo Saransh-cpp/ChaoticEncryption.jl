@@ -39,8 +39,6 @@ using Test
         substitution_decryption(img, keys; path_for_result="../test_images/decrypted.png")
         @test isfile("../test_images/decrypted.png")
 
-        @test_throws ArgumentError("image must be of the type ::String or ::Array{RGB{N0f8},2}") substitution_decryption(5, keys; path_for_result="../test_images/decrypted.png")
-
         keys = logistic_key(0.01, 3.97, 20)
         @test_throws ArgumentError("Number of keys must be equal to height * width of image.") substitution_decryption(img, keys; path_for_result="../test_images/decrypted.png")
 

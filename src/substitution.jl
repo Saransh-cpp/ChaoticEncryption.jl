@@ -1,5 +1,61 @@
 using Images
 
+
+"""
+    _substitution(image, keys, type; path_for_result="./encrypted.png")
+
+Performs substitution encryption/decryption on a given image with the given keys.
+
+See [`substitution_encryption`](@ref) and [`substitution_decryption`](@ref) for more details.
+"""
+function _substitution(
+    image::Union{String,Array{RGB{N0f8},2}},
+    keys::Vector{Int64},
+    type::String;
+    path_for_result::String="./encrypted.png"
+)
+
+    if typeof(image) == String
+        image = load(image)
+    end
+
+    # Generating dimensions of the image
+    height = size(image)[1]
+    width = size(image)[2]
+
+    if length(keys) != height * width
+        throw(ArgumentError("Number of keys must be equal to height * width of image."))
+    end
+
+    z = 1
+    substituted_image = copy(image)
+
+    if type == "encryption"
+        @info "ENCRYPTING"
+    else
+        @info "DECRYPTING"
+    end
+
+    for i = 1:height
+        for j = 1:width
+            rgb = substituted_image[i, j]
+            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
+            substituted_image[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
+            z += 1
+        end
+    end
+
+    if type == "encryption"
+        @info "ENCRYPTED"
+    else
+        @info "DECRYPTED"
+    end
+
+    save(path_for_result, substituted_image)
+    substituted_image
+end
+
+
 """
     substitution_encryption(image, keys; path_for_result="./encrypted.png")
 
@@ -71,8 +127,8 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
  147
 
 julia> substitution_encryption(img, keys)
-ENCRYPTING
-ENCRYPTED
+[ Info: ENCRYPTING
+[ Info: ENCRYPTED
 225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
  RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
  RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
@@ -96,39 +152,11 @@ ENCRYPTED
  RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)
 ```
 """
-function substitution_encryption(
+substitution_encryption(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
-    path_for_result::String="./encrypted.png",
-)
-    # Generating dimensions of the image
-    height = size(image)[1]
-    width = size(image)[2]
-
-    if length(keys) != height * width
-        throw(ArgumentError("Number of keys must be equal to height * width of image."))
-    end
-
-    z = 1
-
-    encryptedImage = copy(image)
-
-    println("ENCRYPTING")
-
-    for i = 1:height
-        for j = 1:width
-            rgb = encryptedImage[i, j]
-            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
-            encryptedImage[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
-            z += 1
-        end
-    end
-
-    println("ENCRYPTED")
-    save(path_for_result, encryptedImage)
-
-    return encryptedImage
-end
+    path_for_result::String="./encrypted.png"
+) = _substitution(image, keys, "encryption"; path_for_result=path_for_result)
 
 
 """
@@ -142,7 +170,7 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 as the ones provided during encryption.
 
 # Arguments
-- `image`: `::String` or `::Array{RGB{N0f8},2}`. The path to the image or the loaded image to be decrypted.
+- `image::Union{String,Array{RGB{N0f8},2}}`: The path to the image or the loaded image to be decrypted.
 - `keys::Array{Int64, 1}`: Keys for decryption.
 - `path_for_result::String`: The path for storing the decrypted image.
 
@@ -203,8 +231,8 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
  147
 
 julia> substitution_decryption(img, keys)
-DECRYPTING
-DECRYPTED
+[ Info: DECRYPTING
+[ Info: DECRYPTED
 225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
  RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
  RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
@@ -228,42 +256,8 @@ DECRYPTED
  RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)
 ```
 """
-function substitution_decryption(
-    image,
+substitution_decryption(
+    image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64};
     path_for_result::String="./decrypted.png",
-)
-
-    if typeof(image) == String
-        image = load(image)
-    elseif typeof(image) != Array{RGB{N0f8},2}
-        throw(ArgumentError("image must be of the type ::String or ::Array{RGB{N0f8},2}"))
-    end
-
-    # Generating dimensions of the image
-    height = size(image)[1]
-    width = size(image)[2]
-
-    if length(keys) != height * width
-        throw(ArgumentError("Number of keys must be equal to height * width of image."))
-    end
-
-    z = 1
-
-    decryptedImage = copy(image)
-    println("DECRYPTING")
-
-    for i = 1:height
-        for j = 1:width
-            rgb = decryptedImage[i, j]
-            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
-            decryptedImage[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
-            z += 1
-        end
-    end
-
-    println("DECRYPTED")
-    save(path_for_result, decryptedImage)
-
-    return decryptedImage
-end
+) = _substitution(image, keys, "decryption"; path_for_result=path_for_result)
