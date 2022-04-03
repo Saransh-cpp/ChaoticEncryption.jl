@@ -518,7 +518,7 @@ julia> img  # inplace
 ```
 """
 substitution_decryption!(
-    image::Union{String,Array{RGB{N0f8},2}},
+    image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
     path_for_result::String="./decrypted.png",
 ) = _substitution(image, keys, "decryption"; path_for_result=path_for_result, inplace=true)
