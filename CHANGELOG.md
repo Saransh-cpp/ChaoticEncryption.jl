@@ -12,7 +12,7 @@
 
 ## Features
 
--   Added `substitution_encryption!` and `substitution_decryption!` to edit images inplace ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
+-   Added `substitution_encryption!` and `substitution_decryption!` to edit encrypt/decrypt inplace ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
 
 # ChaoticEncryption v0.2.0
 
