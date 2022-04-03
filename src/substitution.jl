@@ -1,6 +1,13 @@
 using Images
 
 
+"""
+    _substitution(image, keys, type; path_for_result="./encrypted.png")
+
+Performs substitution encryption/decryption on a given image with the given keys.
+
+See [`substitution_encryption`](@ref) and [`substitution_decryption`](@ref) for more details.
+"""
 function _substitution(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64},
@@ -47,6 +54,7 @@ function _substitution(
     save(path_for_result, substituted_image)
     substituted_image
 end
+
 
 """
     substitution_encryption(image, keys; path_for_result="./encrypted.png")
@@ -149,6 +157,7 @@ substitution_encryption(
     keys::Vector{Int64};
     path_for_result::String="./encrypted.png"
 ) = _substitution(image, keys, "encryption"; path_for_result=path_for_result)
+
 
 """
     substitution_decryption(image, keys; path_for_result="./decrypted.png")
