@@ -33,12 +33,12 @@ Encrypt and decrypt image files using Pseudo-Random Number Generators and variou
 
 ## Installation
 This package is available on Julia's Registry!
-```julia-repl
+```julia
 julia> using Pkg
 julia> Pkg.add("ChaoticEncryption")
 ```
 or
-```julia-repl
+```julia
 julia> ]add ChaoticEncryption
 ```
 
@@ -53,14 +53,14 @@ Other than the docstrings, comprehensive `Jupyter` notebooks displaying the feat
 ## Testing
 
 To run the tests, execute the following in your `Julia REPL` -
-```julia-repl
+```julia
 julia> ]test ChaoticEncryption
 ```
 
 More information on tests is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#testing).
 
 To run calculate coverage while running tests, execute the following in your `Julia REPL` -
-```julia-repl
+```julia
 julia> using Pkg
 julia> Pkg.add("Coverage")
 julia> Pkg.test("ChaoticEncryption"; coverage=true)

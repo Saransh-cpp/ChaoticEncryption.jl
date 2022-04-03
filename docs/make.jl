@@ -1,3 +1,4 @@
+using Images
 using Documenter
 using ChaoticEncryption
 
@@ -5,8 +6,13 @@ DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption)
 makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
-    modules = [ChaoticEncryption],
-    strict = true
+    modules = [ChaoticEncryption, Images],
+    doctest = true,
+    pages = [
+        "Home" => "index.md",
+        "API Documentation" => "apidocs.md",
+        "Developer Documentation" => "devdocs.md"
+    ]
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
