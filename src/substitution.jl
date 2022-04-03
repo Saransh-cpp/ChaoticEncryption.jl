@@ -119,8 +119,8 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
  147
 
 julia> substitution_encryption(img, keys)
-ENCRYPTING
-ENCRYPTED
+[ Info: ENCRYPTING
+[ Info: ENCRYPTED
 225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
  RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
  RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
@@ -147,7 +147,7 @@ ENCRYPTED
 substitution_encryption(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
-    path_for_result::String
+    path_for_result::String="./encrypted.png"
 ) = _substitution(image, keys, "encryption"; path_for_result=path_for_result)
 
 """
@@ -222,8 +222,8 @@ julia> keys = logistic_key(0.01, 3.97, height * width)
  147
 
 julia> substitution_decryption(img, keys)
-DECRYPTING
-DECRYPTED
+[ Info: DECRYPTING
+[ Info: DECRYPTED
 225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
  RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
  RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)

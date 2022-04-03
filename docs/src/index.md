@@ -50,7 +50,7 @@ substitution_encryption(
 
 ```@docs
 substitution_decryption(
-    image,
+    image::Union{String,Array{RGB{N0f8},2}},
     keys::Array{Int64, 1};
     path_for_result::String="./decrypted.png"
 )
