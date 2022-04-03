@@ -3,10 +3,16 @@
 ## Optimisations
 
 -   Refactored `substitution_encryption` and `substitution_decryption` under `_substitution` function ([#55](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/55), @Saransh-cpp)
+-   Images can now be encrypted/decrypted inplace ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
 
 ## Documentation
 
 -   Fixed some documentation issues and rearranged the pages ([#56](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/56), @Saransh-cpp)
+-   Rearranged API documentation ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
+
+## Features
+
+-   Added `substitution_encryption!` and `substitution_decryption!` to encrypt/decrypt images inplace ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
 
 # ChaoticEncryption v0.2.0
 

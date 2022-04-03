@@ -10,7 +10,10 @@ makedocs(
     doctest = true,
     pages = [
         "Home" => "index.md",
-        "API Documentation" => "apidocs.md",
+        "API Documentation" => [
+            "Pseudo-Random Number Generators" => "apidocs/prngs.md",
+            "Encryption/decryption algorithms" => "apidocs/algorithms.md"
+        ],
         "Developer Documentation" => "devdocs.md"
     ]
 )
