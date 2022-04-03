@@ -41,7 +41,7 @@ You now have everything you need to start making changes!
 7. Commit your changes to your branch with [useful, descriptive commit messages](https://chris.beams.io/posts/git-commit/): Remember these are publicly visible and should still make sense a few months ahead in time. While developing, you can keep using the GitHub issue you're working on as a place for discussion. [Refer to your commits](https://stackoverflow.com/questions/8910271/how-can-i-reference-a-commit-in-an-issue-comment-on-github) when discussing specific lines of code.
 8. If you want to add a dependency on another library, or re-use code you found somewhere else, please add a link to the original source code.
 
-### C. Merging your changes with PyBaMM
+### C. Merging your changes with ChaoticEncryption.jl
 
 9. [Test your code!](#testing)
 10. ChaoticEncryption.jl has online documentation at https://saransh-cpp.github.io/ChaoticEncryption.jl/. To make sure any new code you added show up there, please read the [documentation](#documentation) section.
