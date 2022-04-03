@@ -1,5 +1,8 @@
 # Unreleased
 
+## Optimisations
+- Refactored `substitution_encryption` and `substitution_decryption` under `_substitution` function ([#55](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/55), @Saransh-cpp)
+
 # ChaoticEncryption v0.2.0
 
 ## Breaking changes
