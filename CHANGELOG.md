@@ -1,5 +1,9 @@
 # Unreleased
 
+## Breaking changes
+
+-   `ChaoticEncryption.jl` now only supports `Julia` versions greater than `1.6` ([#60](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/60), @Saransh-cpp)
+
 ## Optimisations
 
 -   Refactored `substitution_encryption` and `substitution_decryption` under `_substitution` function ([#55](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/55), @Saransh-cpp)
