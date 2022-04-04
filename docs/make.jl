@@ -8,6 +8,7 @@ makedocs(
     format = Documenter.HTML(sidebar_sitename=false),
     modules = [ChaoticEncryption, Images],
     doctest = true,
+    strict = :doctest,
     pages = [
         "Home" => "index.md",
         "API Documentation" => [
@@ -22,5 +23,6 @@ makedocs(
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
 deploydocs(
-    repo = "github.com/Saransh-cpp/ChaoticEncryption.jl.git"
+    repo = "github.com/Saransh-cpp/ChaoticEncryption.jl.git",
+    push_preview = true,
 )
