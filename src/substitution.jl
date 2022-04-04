@@ -84,6 +84,7 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 # Example
 ```jldoctest
 julia> using Images
+julia> readdir()
 
 julia> img = load("../test_images/camera.jfif")
 225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:

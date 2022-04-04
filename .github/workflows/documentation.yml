@@ -18,6 +18,15 @@ jobs:
           version: '1.6'
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+      - name: Run doctests
+      - run: |
+          julia --color=yes --project=docs/ -e '
+            using ChaoticEncryption
+            # using Pkg; Pkg.activate("docs")
+            using Documenter
+            using Documenter: doctest
+            DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption); recursive=true)
+            doctest(ChaoticEncryption)'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # If authenticating with GitHub Actions token

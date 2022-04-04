@@ -7,7 +7,7 @@ makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
     modules = [ChaoticEncryption, Images],
-    doctest = true,
+    doctest = false,
     pages = [
         "Home" => "index.md",
         "API Documentation" => [
