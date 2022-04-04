@@ -25,5 +25,5 @@ makedocs(
 deploydocs(
     repo = "github.com/Saransh-cpp/ChaoticEncryption.jl.git",
     push_preview = true,
-    versions = ["stable" => "v^", "v#.#.#"],
+    versions = ["stable" => "v^", "v#.#.#", "dev"],
 )
