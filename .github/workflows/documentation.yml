@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
       - name: Run doctests
-      - run: |
+        run: |
           julia --color=yes --project=docs/ -e '
             using ChaoticEncryption
             # using Pkg; Pkg.activate("docs")
