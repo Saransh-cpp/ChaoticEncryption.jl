@@ -42,7 +42,7 @@ julia> logistic_key(0.01, 3.97, 20)
  135
  232
  122
- 102
+ 102sqo notq
 ```
 """
 function logistic_key(
