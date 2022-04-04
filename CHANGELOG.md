@@ -9,10 +9,15 @@
 
 -   Fixed some documentation issues and rearranged the pages ([#56](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/56), @Saransh-cpp)
 -   Rearranged API documentation ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
+-   Now only doctests are strict ([#59](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/59), @Saransh-cpp)
 
 ## Features
 
 -   Added `substitution_encryption!` and `substitution_decryption!` to encrypt/decrypt images inplace ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
+
+## CI
+
+-   Now only doctests are strict ([#59](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/59), @Saransh-cpp)
 
 # ChaoticEncryption v0.2.0
 
