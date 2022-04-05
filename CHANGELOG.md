@@ -22,7 +22,7 @@
 
 ## CI
 
--   Improve documentation deployment ([#59](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/59), [#61](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/61), [#62](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/62), [#64](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/64), [#65](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/65), @Saransh-cpp)
+-   Improve documentation deployment ([#59](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/59), [#61](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/61), [#62](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/62), [#64](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/64), [#65](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/65), [#66](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/66), @Saransh-cpp)
 
 # ChaoticEncryption v0.2.0
 
