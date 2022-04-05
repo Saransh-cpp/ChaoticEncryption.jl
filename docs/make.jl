@@ -26,5 +26,5 @@ deploydocs(
     repo = "github.com/Saransh-cpp/ChaoticEncryption.jl.git",
     push_preview = true,
     devurl = "dev",
-    versions = ["stable" => "v^", "v#.#.#", "devurl" => "devurl"],
+    versions = ["stable" => "v^", "v#.#.#", "dev" => "dev"],
 )
