@@ -11,14 +11,14 @@ See [`substitution_encryption`](@ref) and [`substitution_decryption`](@ref) for 
 # Arguments
 - `image::Array{RGB{N0f8},2}`: A loaded image.
 - `keys::Array{Int64, 1}`: Keys for encryption.
-- `type::String`: Can be "encryption" or "decryption".
+- `type::String`: Can be :encrypt or :decrypt.
 - `path_for_result::String`: The path for storing the encrypted image.
 - `inplace::Boolean`: Perform substitution on the provided image.
 """
 function _substitution(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64},
-    type::String;
+    type::Symbol;
     path_for_result::String="./encrypted.png",
     inplace=false,
 )
@@ -37,7 +37,7 @@ function _substitution(
 
     ~inplace && (image = copy(image))
 
-    if type == "encryption"
+    if type == :encrypt
         @info "ENCRYPTING"
     else
         @info "DECRYPTING"
@@ -53,7 +53,7 @@ function _substitution(
         end
     end
 
-    if type == "encryption"
+    if type == :encrypt
         @info "ENCRYPTED"
     else
         @info "DECRYPTED"
@@ -164,7 +164,7 @@ substitution_encryption(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
     path_for_result::String="./encrypted.png"
-) = _substitution(image, keys, "encryption"; path_for_result=path_for_result)
+) = _substitution(image, keys, :encrypt; path_for_result=path_for_result)
 
 
 """
@@ -290,7 +290,7 @@ substitution_encryption!(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
     path_for_result::String="./encrypted.png"
-) = _substitution(image, keys, "encryption"; path_for_result=path_for_result, inplace=true)
+) = _substitution(image, keys, :encrypt; path_for_result=path_for_result, inplace=true)
 
 
 """
@@ -394,7 +394,7 @@ substitution_decryption(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64};
     path_for_result::String="./decrypted.png",
-) = _substitution(image, keys, "decryption"; path_for_result=path_for_result)
+) = _substitution(image, keys, :decrypt; path_for_result=path_for_result)
 
 
 """
@@ -521,4 +521,4 @@ substitution_decryption!(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
     path_for_result::String="./decrypted.png",
-) = _substitution(image, keys, "decryption"; path_for_result=path_for_result, inplace=true)
+) = _substitution(image, keys, :decrypt; path_for_result=path_for_result, inplace=true)
