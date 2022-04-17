@@ -1,7 +1,7 @@
 name = "ChaoticEncryption"
 uuid = "8967581b-3fa7-4a60-bbed-8fff548a82df"
 authors = ["Saransh Chopra"]
-version = "0.2.0"
+version = "0.3.0"
 
 [deps]
 Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
