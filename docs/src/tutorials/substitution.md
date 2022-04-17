@@ -4,7 +4,7 @@ In the following tutorial, we will encrypt and decrypt an image using the substi
 
 Let us start by adding in the julia packages we will be needing -
 
-```jldoctest substitution
+```julia
 # install TestImages for this tutorial
 # julia> using Pkg
 # julia> Pkg.add("TestImages")
@@ -21,7 +21,7 @@ The first step in the process of encryption would be to generate the required nu
 
 Let's load up an image using `TestImages` package!
 
-```jldoctest substitution
+```julia
 julia> img = testimage("mandrill");
 
 julia> height, width = size(img)
@@ -40,7 +40,7 @@ julia> imshow(img)
 
 Now we can use these dimensions to generate random keys!
 
-```jldoctest substitution
+```julia
 julia> key = logistic_key(0.01, 3.67, height * width)
 262144-element Vector{Int64}:
    0
