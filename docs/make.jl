@@ -1,4 +1,5 @@
 using Images
+using TestImages
 using Documenter
 using ChaoticEncryption
 
@@ -6,11 +7,15 @@ DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption)
 makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
-    modules = [ChaoticEncryption, Images],
+    modules = [ChaoticEncryption, Images, TestImages],
     doctest = true,
     strict = :doctest,
     pages = [
         "Home" => "index.md",
+        "Tutorials" => [
+            "Pseudo-Random Number Generators" => "tutorials/prng.md",
+            # "Encryption/decryption algorithms" => "apidocs/algorithms.md"
+        ],
         "API Documentation" => [
             "Pseudo-Random Number Generators" => "apidocs/prngs.md",
             "Encryption/decryption algorithms" => "apidocs/algorithms.md"
