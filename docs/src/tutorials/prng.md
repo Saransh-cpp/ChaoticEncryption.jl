@@ -84,7 +84,7 @@ This returns a 1 dimensional `Vector` of pseudo-random `Int64` elements ranging 
 
 Now we can try to generate a pseudo-random key for each pixel in a given image. Let us load an image using the `TestImages` package for this!
 
-```jldoctest prng
+```julia
 julia> img = testimage("cameraman");
 
 julia> height, width = size(img)
@@ -103,7 +103,7 @@ julia> imshow(img)
 
 Generating a key for each pixel in the image
 
-```jldoctest prng
+```julia
 julia> keys = logistic_key(0.01, 3.67, height * width)
 262144-element Vector{Int64}:
    0
@@ -185,7 +185,7 @@ julia> keys = lorenz_key(0.01, 0.02, 0.03, 20)
 
 Now we can try to generate a pseudo-random key for each pixel in a given image. Let us load an image using the `TestImages` package for this!
 
-```jldoctest prng
+```julia
 julia> img = testimage("cameraman");
 
 julia> height, width = size(img)
@@ -194,14 +194,14 @@ julia> height, width = size(img)
 
 Generating a key for each pixel in the image
 
-```jldoctest prng
+```julia
 julia> x, y, z = lorenz_key(0.01, 0.02, 0.03, height * width)
 ([0, 0, 256, 24, 129, 42, 54, 134, 43, 179  …  46, 94, 18, 206, 68, 98, 72, 10, 248, 136], [0, 0, 240, 55, 25, 163, 89, 243, 123, 5  …  4, 112, 116, 100, 108, 92, 236, 80, 152, 144], [0, 0, 80, 227, 178, 204, 89, 33, 144, 139  …  128, 48, 176, 128, 176, 72, 168, 32, 208, 112])
 ```
 
 `lorenz_key` returns a `Tuple` with each element being an `Vector{Int64}`. Thus, it returns a variable of the type `Tuple{Vector{Int64}, Vector{Int64}, Vector{Int64}}`.
 
-```jldoctest prng
+```julia
 julia> x
 262144-element Vector{Int64}:
    0
