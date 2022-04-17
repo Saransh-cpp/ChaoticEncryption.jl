@@ -1,5 +1,7 @@
 # Unreleased
 
+# ChaoticEncryption v0.3.0
+
 ## Breaking changes
 
 -   `ChaoticEncryption.jl` now only supports `Julia` versions greater than `1.6` ([#60](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/60), @Saransh-cpp)
