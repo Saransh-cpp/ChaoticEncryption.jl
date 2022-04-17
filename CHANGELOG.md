@@ -15,6 +15,7 @@
 -   Rearranged API documentation ([#58](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/58), @Saransh-cpp)
 -   Now only doctests are strict ([#59](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/59), @Saransh-cpp)
 -   Generated missing docs for previous versions ([#61](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/61), [#62](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/62), @Saransh-cpp)
+-   Added tutorials for PRNGs and substitution algorithm in the docs ([#69](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/69), @Saransh-cpp)
 
 ## Features
 
