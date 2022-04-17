@@ -14,7 +14,7 @@ makedocs(
         "Home" => "index.md",
         "Tutorials" => [
             "Pseudo-Random Number Generators" => "tutorials/prng.md",
-            # "Encryption/decryption algorithms" => "apidocs/algorithms.md"
+            "Substitution algorithm" => "tutorials/substitution.md"
         ],
         "API Documentation" => [
             "Pseudo-Random Number Generators" => "apidocs/prngs.md",
