@@ -43,15 +43,15 @@ function _substitution(
         @info "DECRYPTING"
     end
 
-    z = 1
-    for i = 1:height
-        for j = 1:width
-            rgb = image[i, j]
-            r, g, b = trunc(Int, rgb.r * 255), trunc(Int, rgb.g * 255), trunc(Int, rgb.b * 255)
-            image[i, j] = RGB((r ⊻ keys[z]) / 255, (g ⊻ keys[z]) / 255, (b ⊻ keys[z]) / 255)
-            z += 1
-        end
-    end
+    r = Array{Int64}(undef, height, width)
+    g = Array{Int64}(undef, height, width)
+    b = Array{Int64}(undef, height, width)
+    keys = reshape(keys, 512, 512)
+
+    @. r = trunc(Int, _redify(image) * 255)
+    @. g = trunc(Int, _greenify(image) * 255)
+    @. b = trunc(Int, _blueify(image) * 255)
+    @. image = _imageify((r ⊻ keys) / 255, (g ⊻ keys) / 255, (b ⊻ keys) / 255)
 
     if type == :encrypt
         @info "ENCRYPTED"
@@ -63,6 +63,21 @@ function _substitution(
     image
 end
 
+function _redify(colour)
+    colour.r
+end
+
+function _greenify(colour)
+    colour.g
+end
+
+function _blueify(colour)
+    colour.b
+end
+
+function _imageify(r, g, b)
+    RGB(r, g, b)
+end
 
 """
     substitution_encryption(image, keys; path_for_result="./encrypted.png")
