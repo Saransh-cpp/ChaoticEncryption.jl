@@ -1,8 +1,6 @@
-# Developer documentation
+# Encryption/decryption algorithms
 
-API documentation for `ChaoticEncryption.jl` developers.
-
-## Encryption/decryption algorithms
+Developer documentation for encryption and decryption algorithms.
 
 ```@docs
 ChaoticEncryption._substitution(
