@@ -13,7 +13,7 @@ See [`substitution_encryption`](@ref) and [`substitution_decryption`](@ref) for 
 # Arguments
 - `image::Array{RGB{N0f8},2}`: A loaded image.
 - `keys::Array{Int64, 1}`: Keys for encryption.
-- `type::String`: Can be `:`encrypt` or `:decrypt`.
+- `type::String`: Can be `:encrypt` or `:decrypt`.
 - `path_for_result::String`: The path for storing the encrypted image.
 - `inplace::Boolean`: Perform substitution on the provided image.
 """
