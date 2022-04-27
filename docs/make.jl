@@ -20,7 +20,10 @@ makedocs(
             "Pseudo-Random Number Generators" => "apidocs/prngs.md",
             "Encryption/decryption algorithms" => "apidocs/algorithms.md"
         ],
-        "Developer Documentation" => "devdocs.md"
+        "Developer Documentation" => [
+            "Encryption/decryption algorithms" => "devdocs/algorithms.md",
+            "Utility functions" => "devdocs/utils.md"
+        ]
     ]
 )
 
