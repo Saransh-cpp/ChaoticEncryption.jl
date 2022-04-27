@@ -1,5 +1,7 @@
 using Images
 
+include("./utils.jl")
+
 
 """
     _substitution(image, keys, type; path_for_result="./encrypted.png")
@@ -35,6 +37,7 @@ function _substitution(
         throw(ArgumentError("Number of keys must be equal to height * width of image."))
     end
 
+    # generate a copy if not inplace
     ~inplace && (image = copy(image))
 
     if type == :encrypt
@@ -43,14 +46,20 @@ function _substitution(
         @info "DECRYPTING"
     end
 
+    # generate arrays for r, g, b values of each pixel
     r = Array{Int64}(undef, height, width)
     g = Array{Int64}(undef, height, width)
     b = Array{Int64}(undef, height, width)
+
+    # resize keys for broadcasting
     keys = reshape(keys, 512, 512)
 
+    # collect all r, g, b values without loop
     @. r = trunc(Int, _redify(image) * 255)
     @. g = trunc(Int, _greenify(image) * 255)
     @. b = trunc(Int, _blueify(image) * 255)
+
+    # XOR all r, g, b values and replace the values in image
     @. image = _imageify((r ⊻ keys) / 255, (g ⊻ keys) / 255, (b ⊻ keys) / 255)
 
     if type == :encrypt
@@ -63,21 +72,6 @@ function _substitution(
     image
 end
 
-function _redify(colour)
-    colour.r
-end
-
-function _greenify(colour)
-    colour.g
-end
-
-function _blueify(colour)
-    colour.b
-end
-
-function _imageify(r, g, b)
-    RGB(r, g, b)
-end
 
 """
     substitution_encryption(image, keys; path_for_result="./encrypted.png")
