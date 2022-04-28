@@ -55,7 +55,7 @@ Finally, if you really, really, _really_ love developing ChaoticEncryption.jl, h
 Thanks to julia, `ChaoticEncryption.jl` can be installed for developers using a single command. Navigate to the project repository and in your `Julia REPL` type:
 
 ```julia-repl
-julia> ]dev .
+julia> ] dev .
 ```
 
 Befor executing the command mentioned above, make sure you have cloned the repository. If not, execute:
@@ -70,7 +70,7 @@ All code requires testing. We use the [Julia's testing suite](https://docs.julia
 Before running the tests, make sure you have `SafeTestsets.jl` installed -
 
 ```julia-repl
-julia> ]add SafeTestsets.jl
+julia> ] add SafeTestsets.jl
 ```
 Or
 ```julia-repl
@@ -81,7 +81,7 @@ julia> Pkg.add("SafeTestsets)
 To run the tests, open up your `Julia REPL` and type -
 
 ```julia-repl
-julia> ]test ChaoticEncryption
+julia> ] test ChaoticEncryption
 ```
 
 To run the doctests, build the documentation using -
@@ -111,7 +111,7 @@ julia> Pkg.add("Coverage")
 ```
 or
 ```julia-repl
-julia> ]add Coverage
+julia> ] add Coverage
 ```
 2. Run the tests with `coverage=true` -
 ```julia-repl
@@ -140,8 +140,6 @@ And then visit the webpage served at http://127.0.0.1:8000.
 
 
 ## Infrastructure
-
-### Setuptools
 
 Installation of ChaoticEncryption.jl _and dependencies_ is handled via Julia itself.
 
