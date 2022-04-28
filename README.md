@@ -39,7 +39,7 @@ julia> Pkg.add("ChaoticEncryption")
 ```
 or
 ```julia
-julia> ]add ChaoticEncryption
+julia> ] add ChaoticEncryption
 ```
 
 For developer installation or installation from source, refer [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#local-installation).
@@ -54,7 +54,7 @@ Other than the docstrings, comprehensive `Jupyter` notebooks displaying the feat
 
 To run the tests, execute the following in your `Julia REPL` -
 ```julia
-julia> ]test ChaoticEncryption
+julia> ] test ChaoticEncryption
 ```
 
 More information on tests is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/CONTRIBUTING.md#testing).
