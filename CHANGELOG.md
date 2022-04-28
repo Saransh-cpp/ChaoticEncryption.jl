@@ -4,6 +4,10 @@
 
 -   Completely vectorized the `substitution` algorithm, removing the nested `for` loop ([#75](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/75), @Saransh-cpp)
 
+## Misc
+
+-   Added utility funtions for `ChaoticEncryption.jl` developers ([#75](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/75), @Saransh-cpp)
+
 # ChaoticEncryption v0.3.0
 
 ## Breaking changes

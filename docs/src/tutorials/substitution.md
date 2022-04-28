@@ -143,7 +143,13 @@ julia> imshow(dec)
 
 Additionally, `ChaoticEncryption.jl` also comes with in-place encryption and decryption methods. `substitution_encryption!` and `substitution_decryption!` acts on the image variable passed into them, rather than creating a copy of the same.
 
-This speeds up your code by a huge factor, and should be used wherever possible!
+This speeds up your code by a huge factor, and should be used wherever possible! The methods can be used in the following way -
+
+```julia
+julia> substitution_encryption!(img, key)
+
+julia> img  # the original img variable will be edited inplace
+```
 
 A notebook version of this tutorial is available [here](https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/examples/SubstitutionEncryption.ipynb). Don't forget to star [`ChaoticEncryption.jl`](https://saransh-cpp.github.io/ChaoticEncryption.jl) :)
 
