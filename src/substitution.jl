@@ -48,7 +48,7 @@ function _substitution(
     keys = reshape(keys, height, width)
 
     # substitute all pixels in one go
-    @. image = _subtitute_pixel(image, keys)
+    @. image = _substitute_pixel(image, keys)
 
     if type == :encrypt
         @info "ENCRYPTED"
@@ -62,11 +62,22 @@ end
 
 
 """
-    _subtitute_pixel(pixel::RGB, key::Int64)
+    _substitute_pixel(pixel::RGB, key::Int64)
 
+Returns the pixel after XORing the R, G, and B values with the key.
+Specifically developed to return an `Array` (or the complete image)
+of XORed RGB values in one go.
 
+See [`_substitution`](@ref) for more details.
+
+# Arguments
+- `pixel::RGB`: Pixel value with r, g, and b components.
+- `key::Int64`: The key.
+
+# Returns
+- `pixel::RGB`: Substituted pixel.
 """
-_subtitute_pixel(pixel::RGB, key::Int64) = RGB(
+_substitute_pixel(pixel::RGB, key::Int64) = RGB(
     (trunc(Int, pixel.r * 255) ⊻ key) / 255,
     (trunc(Int, pixel.g * 255) ⊻ key) / 255,
     (trunc(Int, pixel.b * 255) ⊻ key) / 255
