@@ -22,7 +22,6 @@ makedocs(
         ],
         "Developer Documentation" => [
             "Encryption/decryption algorithms" => "devdocs/algorithms.md",
-            "Utility functions" => "devdocs/utils.md"
         ]
     ]
 )
