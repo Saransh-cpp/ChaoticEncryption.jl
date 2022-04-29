@@ -11,6 +11,7 @@ module ChaoticEncryption
 include("lorenz_key.jl")
 include("logistic_key.jl")
 include("substitution.jl")
+include("utils.jl")
 
 export lorenz_key, logistic_key
 
