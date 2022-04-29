@@ -1,5 +1,9 @@
 # Unreleased
 
+## Optimisations
+
+-   Added `_substitute_pixel` to perform substitution for a single pixel, and replaced the current implementation of `substitution` algorithm with the same ([#78](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/78), @Saransh-cpp)
+
 # ChaoticEncryption v0.3.1
 
 ## Optimisations
