@@ -102,8 +102,9 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 - `image::Array{RGB{N0f8}, 2}`: Encrypted image.
 
 # Example
-```jldoctest
+```jldoctest subs
 julia> using Images, TestImages
+ Downloading artifact: images
 
 julia> img = testimage("mandrill");
 
@@ -151,7 +152,7 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 - `image::Array{RGB{N0f8}, 2}`: Encrypted image.
 
 # Example
-```jldoctest
+```jldoctest subs
 julia> using Images, TestImages
 
 julia> img = testimage("mandrill");
@@ -199,7 +200,7 @@ as the ones provided during encryption.
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Decrypted image.
 
-# Example
+# Example subs
 ```jldoctest
 julia> using Images, TestImages
 
@@ -249,7 +250,7 @@ as the ones provided during encryption.
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Decrypted image.
 
-# Example
+# Example subs
 ```jldoctest
 julia> using Images, TestImages
 
