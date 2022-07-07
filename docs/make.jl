@@ -3,7 +3,7 @@ using TestImages
 using Documenter
 using ChaoticEncryption
 
-DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption); recursive = true)
+DocMeta.setdocmeta!(ChaoticEncryption, :DocTestSetup, :(using ChaoticEncryption; using TestImages; testimage("mandrill");); recursive = true)
 makedocs(
     sitename = "ChaoticEncryption",
     format = Documenter.HTML(sidebar_sitename=false),
