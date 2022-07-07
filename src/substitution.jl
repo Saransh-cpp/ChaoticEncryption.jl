@@ -103,24 +103,24 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 
 # Example
 ```jldoctest
-julia> using Images
+julia> using Images, TestImages
 
-julia> img = load("../test_images/camera.jfif");
+julia> img = testimage("mandrill");
 
 julia> height, width = size(img)
-(225, 225)
+(512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width);
 
 julia> keys |> size
-(50625,)
+(262144,)
 
 julia> enc = substitution_encryption(img, keys);
 [ Info: ENCRYPTING
 [ Info: ENCRYPTED
 
 julia> enc |> size
-(225, 225)
+(512, 512)
 
 julia> enc != img
 true
@@ -152,17 +152,17 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 
 # Example
 ```jldoctest
-julia> using Images
+julia> using Images, TestImages
 
-julia> img = load("../test_images/camera.jfif");
+julia> img = testimage("mandrill");
 
 julia> height, width = size(img)
-(225, 225)
+(512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width);
 
 julia> keys |> size
-(50625,)
+(262144,)
 
 julia> orig = copy(img);
 
@@ -201,24 +201,24 @@ as the ones provided during encryption.
 
 # Example
 ```jldoctest
-julia> using Images
+julia> using Images, TestImages
 
-julia> img = load("../test_images/camera.jfif");
+julia> img = testimage("mandrill");
 
 julia> height, width = size(img)
-(225, 225)
+(512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width);
 
 julia> keys |> size
-(50625,)
+(262144,)
 
 julia> dec = substitution_decryption(img, keys);
 [ Info: DECRYPTING
 [ Info: DECRYPTED
 
 julia> dec |> size
-(225, 225)
+(512, 512)
 
 julia> dec != img
 true
@@ -251,17 +251,17 @@ as the ones provided during encryption.
 
 # Example
 ```jldoctest
-julia> using Images
+julia> using Images, TestImages
 
-julia> img = load("../test_images/camera.jfif");
+julia> img = testimage("mandrill");
 
 julia> height, width = size(img)
-(225, 225)
+(512, 512)
 
 julia> keys = logistic_key(0.01, 3.97, height * width);
 
 julia> keys |> size
-(50625,)
+(262144,)
 
 julia> orig = copy(img);
 
