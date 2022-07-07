@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Encryption/decryption algorithms · ChaoticEncryption</title><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.039/juliamono-regular.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img class="docs-light-only" src="../../assets/logo.png" alt="ChaoticEncryption logo"/><img class="docs-dark-only" src="../../assets/logo-dark.png" alt="ChaoticEncryption logo"/></a><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">API Documentation</span><ul><li><a class="tocitem" href="../prngs/">Pseudo-Random Number Generators</a></li><li class="is-active"><a class="tocitem" href>Encryption/decryption algorithms</a><ul class="internal"><li><a class="tocitem" href="#Substitution"><span>Substitution</span></a></li></ul></li></ul></li><li><a class="tocitem" href="../../devdocs/">Developer Documentation</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">API Documentation</a></li><li class="is-active"><a href>Encryption/decryption algorithms</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Encryption/decryption algorithms</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/docs/src/apidocs/algorithms.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Encryption/decryption-algorithms"><a class="docs-heading-anchor" href="#Encryption/decryption-algorithms">Encryption/decryption algorithms</a><a id="Encryption/decryption-algorithms-1"></a><a class="docs-heading-anchor-permalink" href="#Encryption/decryption-algorithms" title="Permalink"></a></h1><h2 id="Substitution"><a class="docs-heading-anchor" href="#Substitution">Substitution</a><a id="Substitution-1"></a><a class="docs-heading-anchor-permalink" href="#Substitution" title="Permalink"></a></h2><h3 id="Encryption"><a class="docs-heading-anchor" href="#Encryption">Encryption</a><a id="Encryption-1"></a><a class="docs-heading-anchor-permalink" href="#Encryption" title="Permalink"></a></h3><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_encryption-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}" href="#ChaoticEncryption.substitution_encryption-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_encryption</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_encryption(image, keys; path_for_result=&quot;./encrypted.png&quot;)</code></pre><p>Performs substitution encryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the order of the keys matter.</p><p><strong>Arguments</strong></p><ul><li><code>image::Array{RGB{N0f8},2}</code>: A loaded image.</li><li><code>keys::Array{Int64, 1}</code>: Keys for encryption.</li><li><code>path_for_result::String</code>: The path for storing the encrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>image::Array{RGB{N0f8}, 2}</code>: Encrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using Images
+
+julia&gt; img = load(&quot;../test_images/camera.jfif&quot;)
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ ⋮                             ⋱
+ RGB{N0f8}(0.4,0.4,0.4)           RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.447,0.447,0.447)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.427,0.427,0.427)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.451,0.451,0.451)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.51,0.51,0.51)     …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.537,0.537,0.537)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.412,0.412,0.412)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.0,0.0,0.0)           RGB{N0f8}(0.0,0.0,0.0)
+
+julia&gt; height, width = size(img)
+(225, 225)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+50625-element Vector{Int64}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+  72
+ 255
+  80
+  84
+  21
+ 154
+ 197
+  82
+ 147
+
+julia&gt; substitution_encryption(img, keys)
+[ Info: ENCRYPTING
+[ Info: ENCRYPTED
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/aade0587a929e592c74ce78756661cd5a8c9277c/src/substitution.jl#L67-L162">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_encryption!-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}" href="#ChaoticEncryption.substitution_encryption!-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_encryption!</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_encryption!(image, keys; path_for_result=&quot;./encrypted.png&quot;)</code></pre><p>Performs substitution encryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the order of the keys matter.</p><p><strong>Arguments</strong></p><ul><li><code>image::Array{RGB{N0f8},2}</code>: A loaded image.</li><li><code>keys::Array{Int64, 1}</code>: Keys for encryption.</li><li><code>path_for_result::String</code>: The path for storing the encrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>image::Array{RGB{N0f8}, 2}</code>: Encrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using Images
+
+julia&gt; img = load(&quot;../test_images/camera.jfif&quot;)
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ ⋮                             ⋱
+ RGB{N0f8}(0.4,0.4,0.4)           RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.447,0.447,0.447)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.427,0.427,0.427)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.451,0.451,0.451)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.51,0.51,0.51)     …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.537,0.537,0.537)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.412,0.412,0.412)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.0,0.0,0.0)           RGB{N0f8}(0.0,0.0,0.0)
+
+julia&gt; height, width = size(img)
+(225, 225)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+50625-element Vector{Int64}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+  72
+ 255
+  80
+  84
+  21
+ 154
+ 197
+  82
+ 147
+
+julia&gt; substitution_encryption!(img, keys)
+[ Info: ENCRYPTING
+[ Info: ENCRYPTED
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)
+
+julia&gt; img  # inplace
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/aade0587a929e592c74ce78756661cd5a8c9277c/src/substitution.jl#L170-L288">source</a></section></article><h3 id="Decryption"><a class="docs-heading-anchor" href="#Decryption">Decryption</a><a id="Decryption-1"></a><a class="docs-heading-anchor-permalink" href="#Decryption" title="Permalink"></a></h3><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_decryption-Tuple{Union{String, Matrix{RGB{N0f8}}}, Vector{Int64}}" href="#ChaoticEncryption.substitution_decryption-Tuple{Union{String, Matrix{RGB{N0f8}}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_decryption</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_decryption(image, keys; path_for_result=&quot;./decrypted.png&quot;)</code></pre><p>Performs substitution decryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the keys provided must be the same as the ones provided during encryption.</p><p><strong>Arguments</strong></p><ul><li><code>image::Union{String,Array{RGB{N0f8},2}}</code>: The path to the image or the loaded image to be decrypted.</li><li><code>keys::Array{Int64, 1}</code>: Keys for decryption.</li><li><code>path_for_result::String</code>: The path for storing the decrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>image::Array{RGB{N0f8}, 2}</code>: Decrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using Images
+
+julia&gt; img = load(&quot;../test_images/camera.jfif&quot;)
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ ⋮                             ⋱
+ RGB{N0f8}(0.4,0.4,0.4)           RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.447,0.447,0.447)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.427,0.427,0.427)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.451,0.451,0.451)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.51,0.51,0.51)     …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.537,0.537,0.537)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.412,0.412,0.412)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.0,0.0,0.0)           RGB{N0f8}(0.0,0.0,0.0)
+
+julia&gt; height, width = size(img)
+(225, 225)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+50625-element Vector{Int64}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+  72
+ 255
+  80
+  84
+  21
+ 154
+ 197
+  82
+ 147
+
+julia&gt; substitution_decryption(img, keys)
+[ Info: DECRYPTING
+[ Info: DECRYPTED
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/aade0587a929e592c74ce78756661cd5a8c9277c/src/substitution.jl#L296-L392">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_decryption!-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}" href="#ChaoticEncryption.substitution_decryption!-Tuple{Matrix{RGB{N0f8}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_decryption!</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_decryption!(image, keys; path_for_result=&quot;./decrypted.png&quot;)</code></pre><p>Performs substitution decryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the keys provided must be the same as the ones provided during encryption.</p><p><strong>Arguments</strong></p><ul><li><code>image::Union{String,Array{RGB{N0f8},2}}</code>: The path to the image or the loaded image to be decrypted.</li><li><code>keys::Array{Int64, 1}</code>: Keys for decryption.</li><li><code>path_for_result::String</code>: The path for storing the decrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>image::Array{RGB{N0f8}, 2}</code>: Decrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using Images
+
+julia&gt; img = load(&quot;../test_images/camera.jfif&quot;)
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.608,0.608,0.608)     RGB{N0f8}(0.0,0.0,0.0)
+ ⋮                             ⋱
+ RGB{N0f8}(0.4,0.4,0.4)           RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.447,0.447,0.447)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.427,0.427,0.427)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.451,0.451,0.451)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.51,0.51,0.51)     …  RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.537,0.537,0.537)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.412,0.412,0.412)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.0,0.0,0.0)           RGB{N0f8}(0.0,0.0,0.0)
+
+julia&gt; height, width = size(img)
+(225, 225)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+50625-element Vector{Int64}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+  72
+ 255
+  80
+  84
+  21
+ 154
+ 197
+  82
+ 147
+
+julia&gt; substitution_decryption!(img, keys)
+[ Info: DECRYPTING
+[ Info: DECRYPTED
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)
+
+julia&gt; img  # inplace
+225×225 Array{RGB{N0f8},2} with eltype RGB{N0f8}:
+ RGB{N0f8}(0.608,0.608,0.608)  …  RGB{N0f8}(0.902,0.902,0.902)
+ RGB{N0f8}(0.918,0.918,0.918)     RGB{N0f8}(0.753,0.753,0.753)
+ RGB{N0f8}(0.027,0.027,0.027)     RGB{N0f8}(0.051,0.051,0.051)
+ RGB{N0f8}(0.149,0.149,0.149)     RGB{N0f8}(0.02,0.02,0.02)
+ RGB{N0f8}(0.369,0.369,0.369)     RGB{N0f8}(0.0,0.0,0.0)
+ RGB{N0f8}(0.576,0.576,0.576)  …  RGB{N0f8}(0.769,0.769,0.769)
+ RGB{N0f8}(0.894,0.894,0.894)     RGB{N0f8}(0.463,0.463,0.463)
+ RGB{N0f8}(0.376,0.376,0.376)     RGB{N0f8}(0.757,0.757,0.757)
+ RGB{N0f8}(0.631,0.631,0.631)     RGB{N0f8}(0.325,0.325,0.325)
+ RGB{N0f8}(0.647,0.647,0.647)     RGB{N0f8}(0.655,0.655,0.655)
+ ⋮                             ⋱
+ RGB{N0f8}(0.086,0.086,0.086)     RGB{N0f8}(0.098,0.098,0.098)
+ RGB{N0f8}(0.769,0.769,0.769)     RGB{N0f8}(0.251,0.251,0.251)
+ RGB{N0f8}(0.459,0.459,0.459)     RGB{N0f8}(0.016,0.016,0.016)
+ RGB{N0f8}(0.302,0.302,0.302)     RGB{N0f8}(0.804,0.804,0.804)
+ RGB{N0f8}(0.153,0.153,0.153)  …  RGB{N0f8}(0.282,0.282,0.282)
+ RGB{N0f8}(0.78,0.78,0.78)        RGB{N0f8}(0.8,0.8,0.8)
+ RGB{N0f8}(0.075,0.075,0.075)     RGB{N0f8}(0.988,0.988,0.988)
+ RGB{N0f8}(0.208,0.208,0.208)     RGB{N0f8}(0.498,0.498,0.498)
+ RGB{N0f8}(0.839,0.839,0.839)     RGB{N0f8}(0.576,0.576,0.576)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/aade0587a929e592c74ce78756661cd5a8c9277c/src/substitution.jl#L400-L519">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../prngs/">« Pseudo-Random Number Generators</a><a class="docs-footer-nextpage" href="../../devdocs/">Developer Documentation »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.15 on <span class="colophon-date" title="Tuesday 5 April 2022 05:52">Tuesday 5 April 2022</span>. Using Julia version 1.6.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
