@@ -15,7 +15,7 @@ ChaoticEncryption._substitution(
     inplace::Bool=false,
     debug::Bool=false
 )
-ChaoticEncryption._substitute_pixel!(
+ChaoticEncryption._substitute_pixel(
     pixel::RGB,
     key::Int64
 )

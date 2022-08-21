@@ -59,7 +59,7 @@ function _substitution(
 
     # substitute all pixels in one go
     debug && @info "Substituting all pixels"
-    @. image = _substitute_pixel!(image, keys)
+    @. image = _substitute_pixel(image, keys)
 
     if debug
         if type == :encrypt
@@ -91,7 +91,7 @@ See [`_substitution`](@ref) for more details.
 # Returns
 - `pixel::RGB`: Substituted pixel.
 """
-_substitute_pixel!(pixel::RGB, key::Int64) = RGB(
+_substitute_pixel(pixel::RGB, key::Int64) = RGB(
     (trunc(Int, pixel.r * 255) ⊻ key) / 255,
     (trunc(Int, pixel.g * 255) ⊻ key) / 255,
     (trunc(Int, pixel.b * 255) ⊻ key) / 255
