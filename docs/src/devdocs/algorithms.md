@@ -10,8 +10,10 @@ ChaoticEncryption._substitution(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64},
     type::Symbol;
+    save::Bool=false,
     path_for_result::String="./encrypted.png",
-    inplace=false,
+    inplace::Bool=false,
+    debug::Bool=false
 )
 ChaoticEncryption._substitute_pixel!(
     pixel::RGB,

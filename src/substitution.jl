@@ -132,8 +132,6 @@ julia> keys |> size
 (262144,)
 
 julia> enc = substitution_encryption(img, keys);
-[ Info: ENCRYPTING
-[ Info: ENCRYPTED
 
 julia> enc |> size
 (512, 512)
@@ -194,8 +192,6 @@ julia> keys |> size
 julia> orig = copy(img);
 
 julia> substitution_encryption!(img, keys);
-[ Info: ENCRYPTING
-[ Info: ENCRYPTED
 
 julia> img != orig  # inplace
 true
@@ -253,8 +249,6 @@ julia> keys |> size
 (262144,)
 
 julia> dec = substitution_decryption(img, keys);
-[ Info: DECRYPTING
-[ Info: DECRYPTED
 
 julia> dec |> size
 (512, 512)
@@ -316,8 +310,6 @@ julia> keys |> size
 julia> orig = copy(img);
 
 julia> substitution_decryption!(img, keys);
-[ Info: DECRYPTING
-[ Info: DECRYPTED
 
 julia> img != orig  # inplace
 true
