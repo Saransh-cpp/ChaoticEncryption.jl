@@ -13,10 +13,7 @@ ChaoticEncryption._substitution(
     path_for_result::String="./encrypted.png",
     inplace=false,
 )
-```
-
-```@docs
-ChaoticEncryption._substitute_pixel(
+ChaoticEncryption._substitute_pixel!(
     pixel::RGB,
     key::Int64
 )

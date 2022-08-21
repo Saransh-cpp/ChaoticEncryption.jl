@@ -1,5 +1,18 @@
 # Unreleased
 
+## Features
+
+-  Introduced `save_img` argument in encryption/decryption functions to manually save the resultant image
+-  Introduced `debug` argument in encryption/decryption functions to print debug statements
+
+## Bug fixes
+
+-  Renamed `_substitute_pixel` to `_substitute_pixel!` to show the inplace alterations
+
+## Optimisations
+
+-  Added `Bool` type to the `inplace` variable
+
 # ChaoticEncryption v0.3.2
 
 ## Optimisations

@@ -22,7 +22,7 @@ using Test
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
-        substitution_encryption(img, keys; path_for_result="../test_images/encrypted.png")
+        substitution_encryption(img, keys; save_img=true, path_for_result="../test_images/encrypted.png", debug=true)
         @test isfile("../test_images/encrypted.png")
 
         keys = logistic_key(0.01, 3.97, 20)
@@ -34,7 +34,7 @@ using Test
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
-        enc = substitution_encryption!(img, keys; path_for_result="../test_images/encrypted.png")
+        enc = substitution_encryption!(img, keys; save_img=true, path_for_result="../test_images/encrypted.png", debug=true)
         @test isfile("../test_images/encrypted.png")
         @test img == enc  # inplace
     end
@@ -44,10 +44,10 @@ using Test
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
-        substitution_decryption("../test_images/encrypted.png", keys; path_for_result="../test_images/decrypted.png")
+        substitution_decryption("../test_images/encrypted.png", keys; save_img=true, path_for_result="../test_images/decrypted.png", debug=true)
         @test isfile("../test_images/decrypted.png")
 
-        substitution_decryption(img, keys; path_for_result="../test_images/decrypted.png")
+        substitution_decryption(img, keys; save_img=true, path_for_result="../test_images/decrypted.png", debug=true)
         @test isfile("../test_images/decrypted.png")
 
         keys = logistic_key(0.01, 3.97, 20)
@@ -62,7 +62,7 @@ using Test
         height, width = size(img)
         keys = logistic_key(0.01, 3.97, height * width)
 
-        dec = substitution_decryption!(img, keys; path_for_result="../test_images/decrypted.png")
+        dec = substitution_decryption!(img, keys; save_img=true, path_for_result="../test_images/decrypted.png", debug=true)
         @test isfile("../test_images/decrypted.png")
         @test img == dec  # inplace
 
