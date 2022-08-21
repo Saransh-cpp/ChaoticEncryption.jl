@@ -9,7 +9,7 @@ makedocs(
     format = Documenter.HTML(sidebar_sitename=false),
     modules = [ChaoticEncryption, Images, TestImages],
     doctest = true,
-    strict = :doctest,
+    strict = Documenter.except(:missing_docs),
     pages = [
         "Home" => "index.md",
         "Tutorials" => [

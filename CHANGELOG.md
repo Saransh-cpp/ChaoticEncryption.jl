@@ -1,5 +1,22 @@
 # Unreleased
 
+## Features
+
+-   Introduced `save_img` argument in encryption/decryption functions to manually save the resultant image ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
+-   Introduced `debug` argument in encryption/decryption functions to print debug statements ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
+
+## Bug fixes
+
+-   Renamed `_substitute_pixel` to `_substitute_pixel!` to show the inplace alterations ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
+
+## Optimisations
+
+-   Added `Bool` type to the `inplace` variable ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
+
+## Documentation
+
+-   Made everything strict except `:missing docs` ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
+
 # ChaoticEncryption v0.3.2
 
 ## Optimisations

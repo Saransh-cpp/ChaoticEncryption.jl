@@ -12,22 +12,28 @@ See [`substitution_encryption`](@ref) and [`substitution_decryption`](@ref) for 
 - `image::Array{RGB{N0f8},2}`: A loaded image.
 - `keys::Array{Int64, 1}`: Keys for encryption.
 - `type::Symbol`: Can be `:encrypt` or `:decrypt`.
+- `save_img::Bool=false`: Save the resultant image.
 - `path_for_result::String`: The path for storing the encrypted image.
-- `inplace::Boolean`: Perform substitution on the provided image.
+- `inplace::Bool`: Perform substitution on the provided image.
+- `debug::Bool`: Print debug output.
 """
 function _substitution(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64},
     type::Symbol;
+    save_img::Bool=false,
     path_for_result::String="./encrypted.png",
-    inplace=false,
+    inplace::Bool=false,
+    debug::Bool=false,
 )
 
+    debug && @info "Loading image from path"
     if typeof(image) == String
         image = load(image)
     end
 
     # Generating dimensions of the image
+    debug && @info "Generating dimensions"
     height = size(image)[1]
     width = size(image)[2]
 
@@ -36,33 +42,41 @@ function _substitution(
     end
 
     # generate a copy if not inplace
+    debug && "Generating a copy of the image"
     ~inplace && (image = copy(image))
 
-    if type == :encrypt
-        @info "ENCRYPTING"
-    else
-        @info "DECRYPTING"
+    if debug
+        if type == :encrypt
+            @info "ENCRYPTING"
+        elseif type == :decrypt
+            @info "DECRYPTING"
+        end
     end
 
     # reshape keys for broadcasting
+    debug && @info "Reshaping keys for broadcasting"
     keys = reshape(keys, height, width)
 
     # substitute all pixels in one go
-    @. image = _substitute_pixel(image, keys)
+    debug && @info "Substituting all pixels"
+    @. image = _substitute_pixel!(image, keys)
 
-    if type == :encrypt
-        @info "ENCRYPTED"
-    else
-        @info "DECRYPTED"
+    if debug
+        if type == :encrypt
+            @info "ENCRYPTED"
+        elseif type == :decrypt
+            @info "DECRYPTED"
+        end
     end
 
-    save(path_for_result, image)
+    debug && @info "Saving result"
+    save_img && save(path_for_result, image)
     image
 end
 
 
 """
-    _substitute_pixel(pixel::RGB, key::Int64)
+    _substitute_pixel!(pixel::RGB, key::Int64)
 
 Returns the pixel after XORing the R, G, and B values with the key.
 Specifically developed to return an `Array` (or the complete image)
@@ -77,7 +91,7 @@ See [`_substitution`](@ref) for more details.
 # Returns
 - `pixel::RGB`: Substituted pixel.
 """
-_substitute_pixel(pixel::RGB, key::Int64) = RGB(
+_substitute_pixel!(pixel::RGB, key::Int64) = RGB(
     (trunc(Int, pixel.r * 255) ⊻ key) / 255,
     (trunc(Int, pixel.g * 255) ⊻ key) / 255,
     (trunc(Int, pixel.b * 255) ⊻ key) / 255
@@ -96,7 +110,9 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 # Arguments
 - `image::Array{RGB{N0f8},2}`: A loaded image.
 - `keys::Array{Int64, 1}`: Keys for encryption.
+- `save_img::Bool=false`: Save the resultant image.
 - `path_for_result::String`: The path for storing the encrypted image.
+- `debug::Bool`: Print debug output.
 
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Encrypted image.
@@ -116,8 +132,6 @@ julia> keys |> size
 (262144,)
 
 julia> enc = substitution_encryption(img, keys);
-[ Info: ENCRYPTING
-[ Info: ENCRYPTED
 
 julia> enc |> size
 (512, 512)
@@ -129,8 +143,17 @@ true
 substitution_encryption(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
-    path_for_result::String="./encrypted.png"
-) = _substitution(image, keys, :encrypt; path_for_result=path_for_result)
+    save_img::Bool=false,
+    path_for_result::String="./encrypted.png",
+    debug::Bool=false,
+) = _substitution(
+    image,
+    keys,
+    :encrypt;
+    save_img=save_img,
+    path_for_result=path_for_result,
+    debug=debug,
+)
 
 
 """
@@ -145,7 +168,9 @@ Iterates simulataneously over each pixel and key, and XORs the pixel value
 # Arguments
 - `image::Array{RGB{N0f8},2}`: A loaded image.
 - `keys::Array{Int64, 1}`: Keys for encryption.
+- `save_img::Bool=false`: Save the resultant image.
 - `path_for_result::String`: The path for storing the encrypted image.
+- `debug::Bool`: Print debug output.
 
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Encrypted image.
@@ -167,8 +192,6 @@ julia> keys |> size
 julia> orig = copy(img);
 
 julia> substitution_encryption!(img, keys);
-[ Info: ENCRYPTING
-[ Info: ENCRYPTED
 
 julia> img != orig  # inplace
 true
@@ -177,8 +200,18 @@ true
 substitution_encryption!(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
-    path_for_result::String="./encrypted.png"
-) = _substitution(image, keys, :encrypt; path_for_result=path_for_result, inplace=true)
+    save_img::Bool=false,
+    path_for_result::String="./encrypted.png",
+    debug::Bool=false,
+) = _substitution(
+    image,
+    keys,
+    :encrypt;
+    save_img=save_img,
+    path_for_result=path_for_result,
+    inplace=true,
+    debug=false,
+)
 
 
 """
@@ -194,7 +227,9 @@ as the ones provided during encryption.
 # Arguments
 - `image::Union{String,Array{RGB{N0f8},2}}`: The path to the image or the loaded image to be decrypted.
 - `keys::Array{Int64, 1}`: Keys for decryption.
-- `path_for_result::String`: The path for storing the decrypted image.
+- `save_img::Bool=false`: Save the resultant image.
+- `path_for_result::String`: The path for storing the encrypted image.
+- `debug::Bool`: Print debug output.
 
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Decrypted image.
@@ -214,8 +249,6 @@ julia> keys |> size
 (262144,)
 
 julia> dec = substitution_decryption(img, keys);
-[ Info: DECRYPTING
-[ Info: DECRYPTED
 
 julia> dec |> size
 (512, 512)
@@ -227,8 +260,17 @@ true
 substitution_decryption(
     image::Union{String,Array{RGB{N0f8},2}},
     keys::Vector{Int64};
+    save_img::Bool=false,
     path_for_result::String="./decrypted.png",
-) = _substitution(image, keys, :decrypt; path_for_result=path_for_result)
+    debug::Bool=false
+) = _substitution(
+    image,
+    keys,
+    :decrypt;
+    save_img=save_img,
+    path_for_result=path_for_result,
+    debug=debug,
+)
 
 
 """
@@ -244,7 +286,9 @@ as the ones provided during encryption.
 # Arguments
 - `image::Union{String,Array{RGB{N0f8},2}}`: The path to the image or the loaded image to be decrypted.
 - `keys::Array{Int64, 1}`: Keys for decryption.
-- `path_for_result::String`: The path for storing the decrypted image.
+- `save_img::Bool=false`: Save the resultant image.
+- `path_for_result::String`: The path for storing the encrypted image.
+- `debug::Bool`: Print debug output.
 
 # Returns
 - `image::Array{RGB{N0f8}, 2}`: Decrypted image.
@@ -266,8 +310,6 @@ julia> keys |> size
 julia> orig = copy(img);
 
 julia> substitution_decryption!(img, keys);
-[ Info: DECRYPTING
-[ Info: DECRYPTED
 
 julia> img != orig  # inplace
 true
@@ -276,5 +318,15 @@ true
 substitution_decryption!(
     image::Array{RGB{N0f8},2},
     keys::Vector{Int64};
+    save_img::Bool=false,
     path_for_result::String="./decrypted.png",
-) = _substitution(image, keys, :decrypt; path_for_result=path_for_result, inplace=true)
+    debug::Bool=false,
+) = _substitution(
+    image,
+    keys,
+    :decrypt;
+    save_img=save_img,
+    path_for_result=path_for_result,
+    inplace=true,
+    debug=debug,
+)
