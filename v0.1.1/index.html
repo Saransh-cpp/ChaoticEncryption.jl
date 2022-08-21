@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>ChaoticEncryption.jl · ChaoticEncryption</title><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.039/juliamono-regular.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href><img class="docs-light-only" src="assets/logo.png" alt="ChaoticEncryption logo"/><img class="docs-dark-only" src="assets/logo-dark.png" alt="ChaoticEncryption logo"/></a><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>ChaoticEncryption.jl</a><ul class="internal"><li><a class="tocitem" href="#Index"><span>Index</span></a></li><li><a class="tocitem" href="#Pseudo-Random-Number-Generators"><span>Pseudo-Random Number Generators</span></a></li><li><a class="tocitem" href="#Encryption-methods"><span>Encryption methods</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>ChaoticEncryption.jl</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>ChaoticEncryption.jl</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="ChaoticEncryption.jl"><a class="docs-heading-anchor" href="#ChaoticEncryption.jl">ChaoticEncryption.jl</a><a id="ChaoticEncryption.jl-1"></a><a class="docs-heading-anchor-permalink" href="#ChaoticEncryption.jl" title="Permalink"></a></h1><p>Encrypt and decrypt image files using Pseudo-Random Number Generators!</p><h2 id="Index"><a class="docs-heading-anchor" href="#Index">Index</a><a id="Index-1"></a><a class="docs-heading-anchor-permalink" href="#Index" title="Permalink"></a></h2><ul><li><a href="#ChaoticEncryption.logistic_key-Tuple{Float64, Float64, Int64}"><code>ChaoticEncryption.logistic_key</code></a></li><li><a href="#ChaoticEncryption.lorenz_key-Tuple{Float64, Float64, Float64, Int64}"><code>ChaoticEncryption.lorenz_key</code></a></li><li><a href="#ChaoticEncryption.substitution_decryption-Tuple{Any, Vector{Int64}}"><code>ChaoticEncryption.substitution_decryption</code></a></li><li><a href="#ChaoticEncryption.substitution_encryption-Tuple{Matrix{ColorTypes.RGB{FixedPointNumbers.N0f8}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_encryption</code></a></li></ul><h2 id="Pseudo-Random-Number-Generators"><a class="docs-heading-anchor" href="#Pseudo-Random-Number-Generators">Pseudo-Random Number Generators</a><a id="Pseudo-Random-Number-Generators-1"></a><a class="docs-heading-anchor-permalink" href="#Pseudo-Random-Number-Generators" title="Permalink"></a></h2><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.logistic_key-Tuple{Float64, Float64, Int64}" href="#ChaoticEncryption.logistic_key-Tuple{Float64, Float64, Int64}"><code>ChaoticEncryption.logistic_key</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">logistic_key(x_init, r, num_keys)</code></pre><p>Generates pseudo-random keys using the Logistic Map.</p><p>The equation -</p><p class="math-container">\[x_{n+1} = r * x_{n} * (1 - x_{n})\]</p><p><strong>Arguments</strong></p><ul><li><code>x_init::Float64</code>: Initial value of x. x ϵ (0, 1).</li><li><code>r::Float64</code>: A constant value. Values &gt; 4 usually results in pseudo-random numbers.</li><li><code>num_keys::Int64</code>: Number of keys to be generated.</li></ul><p><strong>Returns</strong></p><ul><li><code>keys::Array{Int64, 1}</code>: Generated pseudo-random keys.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using ChaoticEncryption
+
+julia&gt; logistic_key(0.01, 3.97, 20)
+20-element Array{Int64,1}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+ 200
+ 217
+  97
+ 132
+ 134
+ 100
+ 135
+ 232
+ 122
+ 102</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/96e84b32df07396864160e2d3a52f434b146f737/src/logistic_key.jl#L1-L45">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.lorenz_key-Tuple{Float64, Float64, Float64, Int64}" href="#ChaoticEncryption.lorenz_key-Tuple{Float64, Float64, Float64, Int64}"><code>ChaoticEncryption.lorenz_key</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">lorenz_key(x_init, y_init, z_init, num_keys; α=10.0, ρ=28.0, β=2.667, dt=0.01)</code></pre><p>Generates 3 lists of pseudo-random numbers using Lorenz system of differential equations.</p><p>The equations -</p><p class="math-container">\[\frac{dx}{dt} = α * (y - x)\]</p><p class="math-container">\[\frac{dy}{dt} = x * (ρ - z) - y\]</p><p class="math-container">\[\frac{dz}{dt} = x * y - β * z\]</p><p><strong>Arguments</strong></p><ul><li><code>x_init::Float64</code>: Initial value of x.</li><li><code>y_init::Float64</code>: Initial value of y.</li><li><code>z_init::Float64:</code> Initial value of z.</li><li><code>num_keys::Int64</code>: Number of keys (in a single list) to be generated.</li><li><code>α::Float64</code>: Constant associated with Lorenz system of differential equations.</li><li><code>ρ::Float64</code>: Constant associated with Lorenz system of differential equations.</li><li><code>β::Float64</code>: Constant associated with Lorenz system of differential equations.</li></ul><p><strong>Returns</strong></p><ul><li><code>x::Array{Int64, 1}</code>: Generated pseudo-random keys corresponding to x values.</li><li><code>y::Array{Int64, 1}</code>: Generated pseudo-random keys corresponding to y values.</li><li><code>z::Array{Int64, 1}</code>: Generated pseudo-random keys corresponding to z values.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using ChaoticEncryption
+
+julia&gt; lorenz_key(0.01, 0.02, 0.03, 20)
+([0, 0, 256, 24, 129, 42, 54, 134, 43, 179, 85, 19, 24, 44, 71, 210, 238, 152, 22, 27], [0, 0, 240, 55, 25, 163, 89, 243, 123, 5, 197, 64, 227, 54, 188, 226, 154, 134, 64, 69], [0, 0, 80, 227, 178, 204, 89, 33, 144, 139, 105, 208, 108, 155, 61, 254, 57, 102, 149, 47])</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/96e84b32df07396864160e2d3a52f434b146f737/src/lorenz_key.jl#L1-L34">source</a></section></article><h2 id="Encryption-methods"><a class="docs-heading-anchor" href="#Encryption-methods">Encryption methods</a><a id="Encryption-methods-1"></a><a class="docs-heading-anchor-permalink" href="#Encryption-methods" title="Permalink"></a></h2><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_encryption-Tuple{Matrix{ColorTypes.RGB{FixedPointNumbers.N0f8}}, Vector{Int64}}" href="#ChaoticEncryption.substitution_encryption-Tuple{Matrix{ColorTypes.RGB{FixedPointNumbers.N0f8}}, Vector{Int64}}"><code>ChaoticEncryption.substitution_encryption</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_encryption(image, keys; path_for_result=&quot;./encrypted.png&quot;)</code></pre><p>Performs substitution encryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the order of the keys matter.</p><p><strong>Arguments</strong></p><ul><li><code>image::Array{RGB{N0f8},2}</code>: A loaded image.</li><li><code>keys::Array{Int64, 1}</code>: Keys for encryption.</li><li><code>path_for_result::String</code>: The path for storing the encrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>encryptedImage::Array{RGB{N0f8}, 2}</code>: Encrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using TestImages, ChaoticEncryption
+
+julia&gt; img = testimage(&quot;mandrill&quot;)
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+ RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
+ RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
+ RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
+ RGB{N0f8}(0.251,0.31,0.188)      RGB{N0f8}(0.243,0.306,0.184)
+ RGB{N0f8}(0.431,0.329,0.153)     RGB{N0f8}(0.314,0.369,0.235)
+ RGB{N0f8}(0.38,0.329,0.114)   …  RGB{N0f8}(0.659,0.788,0.463)
+ RGB{N0f8}(0.239,0.149,0.09)      RGB{N0f8}(0.651,0.675,0.467)
+ RGB{N0f8}(0.212,0.09,0.122)      RGB{N0f8}(0.525,0.596,0.314)
+ RGB{N0f8}(0.251,0.212,0.216)     RGB{N0f8}(0.467,0.518,0.29)
+ RGB{N0f8}(0.216,0.125,0.09)      RGB{N0f8}(0.596,0.561,0.239)
+ ⋮                             ⋱
+ RGB{N0f8}(0.416,0.486,0.498)     RGB{N0f8}(0.267,0.365,0.345)
+ RGB{N0f8}(0.459,0.51,0.463)      RGB{N0f8}(0.278,0.231,0.212)
+ RGB{N0f8}(0.42,0.451,0.467)   …  RGB{N0f8}(0.329,0.337,0.365)
+ RGB{N0f8}(0.38,0.42,0.447)       RGB{N0f8}(0.29,0.353,0.286)
+ RGB{N0f8}(0.365,0.388,0.353)     RGB{N0f8}(0.349,0.325,0.333)
+ RGB{N0f8}(0.376,0.451,0.525)     RGB{N0f8}(0.325,0.357,0.376)
+ RGB{N0f8}(0.475,0.58,0.608)      RGB{N0f8}(0.318,0.314,0.235)
+ RGB{N0f8}(0.494,0.663,0.659)  …  RGB{N0f8}(0.314,0.247,0.278)
+ RGB{N0f8}(0.035,0.043,0.047)     RGB{N0f8}(0.016,0.02,0.008)
+
+julia&gt; height, width = size(img)
+(512, 512)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+262144-element Array{Int64,1}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+ 185
+ 196
+ 214
+  69
+  22
+  84
+ 234
+ 140
+ 253
+
+julia&gt; substitution_encryption(img, keys)
+ENCRYPTING
+ENCRYPTED
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+ RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.969,0.973,0.196)
+ RGB{N0f8}(0.016,0.004,0.259)     RGB{N0f8}(0.91,0.102,0.855)
+ RGB{N0f8}(0.525,0.686,0.98)      RGB{N0f8}(0.447,0.259,0.137)
+ RGB{N0f8}(0.043,0.016,0.482)     RGB{N0f8}(0.58,0.894,0.522)
+ RGB{N0f8}(0.063,0.165,0.349)     RGB{N0f8}(0.78,0.788,0.671)
+ RGB{N0f8}(0.475,0.298,0.02)   …  RGB{N0f8}(0.055,0.435,0.816)
+ RGB{N0f8}(0.78,0.863,0.929)      RGB{N0f8}(0.243,0.204,0.937)
+ RGB{N0f8}(0.392,0.271,0.302)     RGB{N0f8}(0.929,0.953,0.231)
+ RGB{N0f8}(0.282,0.243,0.247)     RGB{N0f8}(0.718,0.267,0.541)
+ RGB{N0f8}(0.396,0.447,0.271)     RGB{N0f8}(0.106,0.047,0.745)
+ ⋮                             ⋱
+ RGB{N0f8}(0.588,0.502,0.514)     RGB{N0f8}(0.992,0.894,0.882)
+ RGB{N0f8}(0.29,0.741,0.286)      RGB{N0f8}(0.788,0.71,0.722)
+ RGB{N0f8}(0.624,0.529,0.514)  …  RGB{N0f8}(0.855,0.847,0.827)
+ RGB{N0f8}(0.467,0.49,0.392)      RGB{N0f8}(0.102,0.039,0.098)
+ RGB{N0f8}(0.012,0.239,0.016)     RGB{N0f8}(0.176,0.153,0.129)
+ RGB{N0f8}(0.929,0.996,0.043)     RGB{N0f8}(0.267,0.298,0.467)
+ RGB{N0f8}(0.71,0.345,0.341)      RGB{N0f8}(0.204,0.208,0.349)
+ RGB{N0f8}(0.902,0.192,0.188)  …  RGB{N0f8}(0.157,0.278,0.247)
+ RGB{N0f8}(0.718,0.71,0.698)      RGB{N0f8}(0.976,0.973,1.0)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/96e84b32df07396864160e2d3a52f434b146f737/src/substitution.jl#L4-L99">source</a></section></article><article class="docstring"><header><a class="docstring-binding" id="ChaoticEncryption.substitution_decryption-Tuple{Any, Vector{Int64}}" href="#ChaoticEncryption.substitution_decryption-Tuple{Any, Vector{Int64}}"><code>ChaoticEncryption.substitution_decryption</code></a> — <span class="docstring-category">Method</span></header><section><div><pre><code class="language-julia hljs">substitution_decryption(image, keys; path_for_result=&quot;./decrypted.png&quot;)</code></pre><p>Performs substitution decryption on a given image with the given keys.</p><p><strong>Algorithm</strong></p><p>Iterates simulataneously over each pixel and key, and XORs the pixel value (all R, G, and B) with the given key. Hence, the keys provided must be the same as the ones provided during encryption.</p><p><strong>Arguments</strong></p><ul><li><code>image</code>: <code>::String</code> or <code>::Array{RGB{N0f8},2}</code>. The path to the image or the loaded image to be decrypted.</li><li><code>keys::Array{Int64, 1}</code>: Keys for decryption.</li><li><code>path_for_result::String</code>: The path for storing the decrypted image.</li></ul><p><strong>Returns</strong></p><ul><li><code>decryptedImage::Array{RGB{N0f8}, 2}</code>: Decrypted image.</li></ul><p><strong>Example</strong></p><pre><code class="language-julia-repl hljs">julia&gt; using TestImages, ChaoticEncryption
+
+julia&gt; img = testimage(&quot;mandrill&quot;)
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+ RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
+ RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
+ RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
+ RGB{N0f8}(0.251,0.31,0.188)      RGB{N0f8}(0.243,0.306,0.184)
+ RGB{N0f8}(0.431,0.329,0.153)     RGB{N0f8}(0.314,0.369,0.235)
+ RGB{N0f8}(0.38,0.329,0.114)   …  RGB{N0f8}(0.659,0.788,0.463)
+ RGB{N0f8}(0.239,0.149,0.09)      RGB{N0f8}(0.651,0.675,0.467)
+ RGB{N0f8}(0.212,0.09,0.122)      RGB{N0f8}(0.525,0.596,0.314)
+ RGB{N0f8}(0.251,0.212,0.216)     RGB{N0f8}(0.467,0.518,0.29)
+ RGB{N0f8}(0.216,0.125,0.09)      RGB{N0f8}(0.596,0.561,0.239)
+ ⋮                             ⋱
+ RGB{N0f8}(0.416,0.486,0.498)     RGB{N0f8}(0.267,0.365,0.345)
+ RGB{N0f8}(0.459,0.51,0.463)      RGB{N0f8}(0.278,0.231,0.212)
+ RGB{N0f8}(0.42,0.451,0.467)   …  RGB{N0f8}(0.329,0.337,0.365)
+ RGB{N0f8}(0.38,0.42,0.447)       RGB{N0f8}(0.29,0.353,0.286)
+ RGB{N0f8}(0.365,0.388,0.353)     RGB{N0f8}(0.349,0.325,0.333)
+ RGB{N0f8}(0.376,0.451,0.525)     RGB{N0f8}(0.325,0.357,0.376)
+ RGB{N0f8}(0.475,0.58,0.608)      RGB{N0f8}(0.318,0.314,0.235)
+ RGB{N0f8}(0.494,0.663,0.659)  …  RGB{N0f8}(0.314,0.247,0.278)
+ RGB{N0f8}(0.035,0.043,0.047)     RGB{N0f8}(0.016,0.02,0.008)
+
+julia&gt; height, width = size(img)
+(512, 512)
+
+julia&gt; keys = logistic_key(0.01, 3.97, height * width)
+262144-element Array{Int64,1}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+   ⋮
+ 185
+ 196
+ 214
+  69
+  22
+  84
+ 234
+ 140
+ 253
+
+julia&gt; substitution_decryption(&quot;./encrypted.png&quot;, keys)
+DECRYPTING
+DECRYPTED
+512×512 Array{RGB{N0f8},2} with eltype ColorTypes.RGB{FixedPointNumbers.Normed{UInt8,8}}:
+ RGB{N0f8}(0.643,0.588,0.278)  …  RGB{N0f8}(0.702,0.737,0.463)
+ RGB{N0f8}(0.471,0.49,0.243)      RGB{N0f8}(0.471,0.541,0.29)
+ RGB{N0f8}(0.388,0.29,0.122)      RGB{N0f8}(0.376,0.314,0.192)
+ RGB{N0f8}(0.251,0.31,0.188)      RGB{N0f8}(0.243,0.306,0.184)
+ RGB{N0f8}(0.431,0.329,0.153)     RGB{N0f8}(0.314,0.369,0.235)
+ RGB{N0f8}(0.38,0.329,0.114)   …  RGB{N0f8}(0.659,0.788,0.463)
+ RGB{N0f8}(0.239,0.149,0.09)      RGB{N0f8}(0.651,0.675,0.467)
+ RGB{N0f8}(0.212,0.09,0.122)      RGB{N0f8}(0.525,0.596,0.314)
+ RGB{N0f8}(0.251,0.212,0.216)     RGB{N0f8}(0.467,0.518,0.29)
+ RGB{N0f8}(0.216,0.125,0.09)      RGB{N0f8}(0.596,0.561,0.239)
+ ⋮                             ⋱
+ RGB{N0f8}(0.416,0.486,0.498)     RGB{N0f8}(0.267,0.365,0.345)
+ RGB{N0f8}(0.459,0.51,0.463)      RGB{N0f8}(0.278,0.231,0.212)
+ RGB{N0f8}(0.42,0.451,0.467)   …  RGB{N0f8}(0.329,0.337,0.365)
+ RGB{N0f8}(0.38,0.42,0.447)       RGB{N0f8}(0.29,0.353,0.286)
+ RGB{N0f8}(0.365,0.388,0.353)     RGB{N0f8}(0.349,0.325,0.333)
+ RGB{N0f8}(0.376,0.451,0.525)     RGB{N0f8}(0.325,0.357,0.376)
+ RGB{N0f8}(0.475,0.58,0.608)      RGB{N0f8}(0.318,0.314,0.235)
+ RGB{N0f8}(0.494,0.663,0.659)  …  RGB{N0f8}(0.314,0.247,0.278)
+ RGB{N0f8}(0.035,0.043,0.047)     RGB{N0f8}(0.016,0.02,0.008)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/96e84b32df07396864160e2d3a52f434b146f737/src/substitution.jl#L135-L231">source</a></section></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.15 on <span class="colophon-date" title="Monday 4 April 2022 14:56">Monday 4 April 2022</span>. Using Julia version 1.6.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
