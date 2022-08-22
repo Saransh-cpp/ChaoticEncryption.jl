@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Pseudo-Random Number Generators · ChaoticEncryption</title><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img class="docs-light-only" src="../../assets/logo.png" alt="ChaoticEncryption logo"/><img class="docs-dark-only" src="../../assets/logo-dark.png" alt="ChaoticEncryption logo"/></a><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><span class="tocitem">Tutorials</span><ul><li class="is-active"><a class="tocitem" href>Pseudo-Random Number Generators</a><ul class="internal"><li><a class="tocitem" href="#PRNGs-in-ChaoticEncryption.jl"><span>PRNGs in ChaoticEncryption.jl</span></a></li><li><a class="tocitem" href="#Logistic-Map"><span>Logistic Map</span></a></li><li><a class="tocitem" href="#Using-logistic_key"><span>Using logistic_key</span></a></li><li><a class="tocitem" href="#Generating-pseudo-random-keys-for-an-image"><span>Generating pseudo-random keys for an image</span></a></li><li><a class="tocitem" href="#Lorenz-System-of-Differential-Equations"><span>Lorenz System of Differential Equations</span></a></li><li><a class="tocitem" href="#Using-lorenz_key"><span>Using lorenz_key</span></a></li><li><a class="tocitem" href="#Generating-pseudo-random-keys-for-an-image-2"><span>Generating pseudo-random keys for an image</span></a></li></ul></li><li><a class="tocitem" href="../substitution/">Substitution algorithm</a></li></ul></li><li><span class="tocitem">API Documentation</span><ul><li><a class="tocitem" href="../../apidocs/prngs/">Pseudo-Random Number Generators</a></li><li><a class="tocitem" href="../../apidocs/algorithms/">Encryption/decryption algorithms</a></li></ul></li><li><span class="tocitem">Developer Documentation</span><ul><li><a class="tocitem" href="../../devdocs/algorithms/">Encryption/decryption algorithms</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Tutorials</a></li><li class="is-active"><a href>Pseudo-Random Number Generators</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Pseudo-Random Number Generators</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/docs/src/tutorials/prng.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Pseudo-Random-Number-Generators"><a class="docs-heading-anchor" href="#Pseudo-Random-Number-Generators">Pseudo-Random Number Generators</a><a id="Pseudo-Random-Number-Generators-1"></a><a class="docs-heading-anchor-permalink" href="#Pseudo-Random-Number-Generators" title="Permalink"></a></h1><p>In the following example, we will explore the PRNGs available in <code>ChaoticEncryption.jl</code>. The API documentation for <code>ChaoticEncryption.jl</code> is available <a href="https://saransh-cpp.github.io/ChaoticEncryption.jl">here</a>.</p><p>Let us start by adding in the julia packages we will be needing -</p><pre><code class="language-julia-repl hljs"># install TestImages for this tutorial
+# julia&gt; using Pkg
+# julia&gt; Pkg.add(&quot;TestImages&quot;)
+# install ChaoticEncryption.jl if you haven&#39;t already!
+# julia&gt; Pkg.add(&quot;ChaoticEncryption&quot;)
+
+julia&gt; using TestImages, ChaoticEncryption
+</code></pre><h2 id="PRNGs-in-ChaoticEncryption.jl"><a class="docs-heading-anchor" href="#PRNGs-in-ChaoticEncryption.jl">PRNGs in ChaoticEncryption.jl</a><a id="PRNGs-in-ChaoticEncryption.jl-1"></a><a class="docs-heading-anchor-permalink" href="#PRNGs-in-ChaoticEncryption.jl" title="Permalink"></a></h2><p>Currently, <code>ChaoticEncryption.jl</code> includes 2 PRNGs, which are- </p><ol><li>Logistic Map</li><li>Lorenz System of Differential Equations</li></ol><p>We will be adding more of them soon! If you stumble upon an interesting PRNG, feel free to create an issue or a pull request for the same!</p><h2 id="Logistic-Map"><a class="docs-heading-anchor" href="#Logistic-Map">Logistic Map</a><a id="Logistic-Map-1"></a><a class="docs-heading-anchor-permalink" href="#Logistic-Map" title="Permalink"></a></h2><p>As per the <a href="https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/apidocs/prngs/#Logistic-map">documentation</a>, <code>logistic_key</code> generates a vectors of pseudo-random numbers using the Logistic Map.</p><p>The function uses the following equation to generate pseudo-random numbers -</p><p class="math-container">\[x_{n+1} = r * x_{n} * (1 - x_{n})\]</p><p>The function takes in the following arguments -</p><ul><li><code>x_init::Float64</code>: Initial value of x. x ϵ (0, 1).</li><li><code>r::Float64</code>: A constant value. Values &gt; 4 usually results in pseudo-random numbers.</li><li><code>num_keys::Int64</code>: Number of keys to be generated.</li><li><code>scaling_factor::Float64=10.0^16</code>: Factor to be multiplied to the generated value of pseudo-random   number. Ideally, the factor should be &gt; upper_bound.</li><li><code>upper_bound::Float64=256.0</code>: Upper bound of keys (not included). Use 256 for encrypting images   as the RGB values of a pixel varies from 0 to 255.</li></ul><p>And returns the following <code>Vector</code> -</p><ul><li><code>keys::Vector{Int64}:</code>: Generated pseudo-random keys.</li></ul><h2 id="Using-logistic_key"><a class="docs-heading-anchor" href="#Using-logistic_key">Using logistic_key</a><a id="Using-logistic_key-1"></a><a class="docs-heading-anchor-permalink" href="#Using-logistic_key" title="Permalink"></a></h2><p>After going through the documentation, let us use the function <code>logistic_key</code> with the following aarguments -</p><ul><li>x_init = 0.01</li><li>r = 3.97</li><li>num_keys = 20</li></ul><pre><code class="language-julia-repl hljs">julia&gt; keys = logistic_key(0.01, 3.97, 20)
+20-element Vector{Int64}:
+   0
+  44
+   7
+  26
+  14
+ 224
+  16
+ 250
+ 162
+ 211
+ 200
+ 217
+  97
+ 132
+ 134
+ 100
+ 135
+ 232
+ 122
+ 102</code></pre><p>This returns a 1 dimensional <code>Vector</code> of pseudo-random <code>Int64</code> elements ranging from 0 - 255 (as the RGB values of an image range from 0 - 255)!</p><h2 id="Generating-pseudo-random-keys-for-an-image"><a class="docs-heading-anchor" href="#Generating-pseudo-random-keys-for-an-image">Generating pseudo-random keys for an image</a><a id="Generating-pseudo-random-keys-for-an-image-1"></a><a class="docs-heading-anchor-permalink" href="#Generating-pseudo-random-keys-for-an-image" title="Permalink"></a></h2><p>Now we can try to generate a pseudo-random key for each pixel in a given image. Let us load an image using the <code>TestImages</code> package for this!</p><pre><code class="language-julia hljs">julia&gt; img = testimage(&quot;cameraman&quot;);
+
+julia&gt; height, width = size(img)
+(512, 512)</code></pre><p>The image can be viewed using <a href="https://github.com/JuliaImages/ImageView.jl">ImageView.jl</a> -</p><pre><code class="language-julia hljs">julia&gt; using ImageView
+
+julia&gt; imshow(img)</code></pre><p><img src="https://user-images.githubusercontent.com/74055102/163708322-0df9f306-8325-484b-8535-9a34fa358f06.png" alt="image"/></p><p>Generating a key for each pixel in the image</p><pre><code class="language-julia hljs">julia&gt; keys = logistic_key(0.01, 3.67, height * width)
+262144-element Vector{Int64}:
+   0
+  68
+ 135
+  20
+  13
+ 140
+ 197
+ 182
+ 248
+ 229
+   ⋮
+ 168
+ 182
+  77
+  83
+  74
+ 176
+  27
+ 251
+ 206</code></pre><p>We can now use these keys to encrypt the image! Encryption and decryption will be covered in another example :)</p><h2 id="Lorenz-System-of-Differential-Equations"><a class="docs-heading-anchor" href="#Lorenz-System-of-Differential-Equations">Lorenz System of Differential Equations</a><a id="Lorenz-System-of-Differential-Equations-1"></a><a class="docs-heading-anchor-permalink" href="#Lorenz-System-of-Differential-Equations" title="Permalink"></a></h2><p>As per the <a href="https://saransh-cpp.github.io/ChaoticEncryption.jl/dev/apidocs/prngs/#Lorenz-system-of-differential-equations">documentation</a>, <code>lorenz_key</code> generates 3 vectors of pseudo-random numbers using Lorenz system of differential equations.</p><p>The function uses the following system of differential equations to generate pseudo-random numbers -</p><p class="math-container">\[\frac{dx}{dt} = α * (y - x)\]</p><p class="math-container">\[\frac{dy}{dt} = x * (ρ - z) - y\]</p><p class="math-container">\[\frac{dz}{dt} = x * y - β * z\]</p><p>The function takes in the following arguments -</p><ul><li><code>x_init::Float64</code>: Initial value of x.</li><li><code>y_init::Float64</code>: Initial value of y.</li><li><code>z_init::Float64:</code> Initial value of z.</li><li><code>num_keys::Int64</code>: Number of keys (in a single list) to be generated.</li><li><code>α::Float64</code>: Constant associated with Lorenz system of differential equations.</li><li><code>ρ::Float64</code>: Constant associated with Lorenz system of differential equations.</li><li><code>β::Float64</code>: Constant associated with Lorenz system of differential equations.</li><li><code>scaling_factor::Float64=10.0^16</code>: Factor to be multiplied to the generated value of pseudo-random   number. Ideally, the factor should be &gt; upper_bound.</li><li><code>upper_bound::Float64=256.0</code>: Upper bound of keys (not included). Use 256 for encrypting images   as the RGB values of a pixel varies from 0 to 255.</li></ul><p>And returns the following <code>Vector</code>s</p><ul><li><code>x::Vector{Int64}</code>: Generated pseudo-random keys corresponding to x values.</li><li><code>y::Vector{Int64}</code>: Generated pseudo-random keys corresponding to y values.</li><li><code>z::Vector{Int64}</code>: Generated pseudo-random keys corresponding to z values.</li></ul><h2 id="Using-lorenz_key"><a class="docs-heading-anchor" href="#Using-lorenz_key">Using lorenz_key</a><a id="Using-lorenz_key-1"></a><a class="docs-heading-anchor-permalink" href="#Using-lorenz_key" title="Permalink"></a></h2><p>After going through the documentation, let us use the function <code>lorenz_key</code> with the following aarguments -</p><ul><li>x_init = 0.01</li><li>y_init = 0.02</li><li>z_init = 0.03</li><li>num_keys = 20</li></ul><p>You can play with other arguments as well!</p><pre><code class="language-julia-repl hljs">julia&gt; keys = lorenz_key(0.01, 0.02, 0.03, 20)
+([0, 0, 256, 24, 129, 42, 54, 134, 43, 179, 85, 19, 24, 44, 71, 210, 238, 152, 22, 27], [0, 0, 240, 55, 25, 163, 89, 243, 123, 5, 197, 64, 227, 54, 188, 226, 154, 134, 64, 69], [0, 0, 80, 227, 178, 204, 89, 33, 144, 139, 105, 208, 108, 155, 61, 254, 57, 102, 149, 47])</code></pre><h2 id="Generating-pseudo-random-keys-for-an-image-2"><a class="docs-heading-anchor" href="#Generating-pseudo-random-keys-for-an-image-2">Generating pseudo-random keys for an image</a><a class="docs-heading-anchor-permalink" href="#Generating-pseudo-random-keys-for-an-image-2" title="Permalink"></a></h2><p>Now we can try to generate a pseudo-random key for each pixel in a given image. Let us load an image using the <code>TestImages</code> package for this!</p><pre><code class="language-julia hljs">julia&gt; img = testimage(&quot;cameraman&quot;);
+
+julia&gt; height, width = size(img)
+(512, 512)</code></pre><p>Generating a key for each pixel in the image</p><pre><code class="language-julia hljs">julia&gt; x, y, z = lorenz_key(0.01, 0.02, 0.03, height * width)
+([0, 0, 256, 24, 129, 42, 54, 134, 43, 179  …  46, 94, 18, 206, 68, 98, 72, 10, 248, 136], [0, 0, 240, 55, 25, 163, 89, 243, 123, 5  …  4, 112, 116, 100, 108, 92, 236, 80, 152, 144], [0, 0, 80, 227, 178, 204, 89, 33, 144, 139  …  128, 48, 176, 128, 176, 72, 168, 32, 208, 112])</code></pre><p><code>lorenz_key</code> returns a <code>Tuple</code> with each element being an <code>Vector{Int64}</code>. Thus, it returns a variable of the type <code>Tuple{Vector{Int64}, Vector{Int64}, Vector{Int64}}</code>.</p><pre><code class="language-julia hljs">julia&gt; x
+262144-element Vector{Int64}:
+   0
+   0
+ 256
+  24
+ 129
+  42
+  54
+ 134
+  43
+ 179
+   ⋮
+  94
+  18
+ 206
+  68
+  98
+  72
+  10
+ 248
+ 136</code></pre><p>A notebook version of this tutorial is available <a href="https://github.com/Saransh-cpp/ChaoticEncryption.jl/blob/master/examples/PseudoRandomNumberGenerators.ipynb">here</a>. Don&#39;t forget to star <a href="https://saransh-cpp.github.io/ChaoticEncryption.jl"><code>ChaoticEncryption.jl</code></a> :)</p><p>The complete API documentation is available <a href="https://saransh-cpp.github.io/ChaoticEncryption.jl">here</a>. </p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../substitution/">Substitution algorithm »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.22 on <span class="colophon-date" title="Monday 22 August 2022 04:06">Monday 22 August 2022</span>. Using Julia version 1.6.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
