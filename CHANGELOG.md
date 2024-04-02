@@ -13,6 +13,7 @@
 
 ## Documentation
 
+-   Added more results in README ([#85](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/85))
 -   Made everything strict except `:missing docs` ([#83](https://github.com/Saransh-cpp/ChaoticEncryption.jl/pull/83))
 
 # ChaoticEncryption v0.3.2
